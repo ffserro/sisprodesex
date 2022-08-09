@@ -6,6 +6,9 @@ import streamlit as st
 import numpy as np
 import time
 
+st.markdown("# Main page")
+st.sidebar.markdown("# Main page")
+
 """
 # Welcome to Streamlit!
 
