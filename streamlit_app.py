@@ -43,4 +43,4 @@ df = pd.DataFrame({
 df
 
 st.write("Teste de planilha:")
-st.write(df)
+st.table(df)
