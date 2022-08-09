@@ -64,3 +64,6 @@ st.map(map_data)
 
 x = st.slider('x')
 st.write(x, 'squared is', x**2)
+
+st.text_input('Your name', key='name')
+st.session_state.name
