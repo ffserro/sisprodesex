@@ -45,5 +45,5 @@ df
 st.write("Teste de planilha:")
 st.table(df)
 
-dataframe = np.random.randint(10,20)
-st.dataframe(dataframe)
+x = np.random.randint(10,20)
+st.dataframe(x)
