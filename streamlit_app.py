@@ -67,3 +67,6 @@ st.write(x, 'squared is', x**2)
 
 st.text_input('Your name', key='name')
 st.session_state.name
+
+if st.checkbox('Show dataframe'):
+    chart_data
