@@ -3,6 +3,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
+import numpy as np
 
 """
 # Welcome to Streamlit!
@@ -45,5 +46,5 @@ df
 st.write("Teste de planilha:")
 st.table(df)
 
-x = np.random.randint(10,20)
-st.dataframe(x)
+dataframe = np.random.randint(10,20)
+st.dataframe(dataframe)
