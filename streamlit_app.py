@@ -62,7 +62,7 @@ chart_data = pd.DataFrame(
 st.line_chart(chart_data)
 
 map_data = pd.DataFrame(
-    np.random.randn(1000,2) / [50,50] + [-22.8, -43.2],
+    np.random.randn(1000,2) / [50,50] + [-22.88, -43.27],
     columns = ['lat','lon'])
 st.map(map_data)
 
