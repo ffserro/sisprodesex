@@ -75,4 +75,10 @@ option = st.selectbox(
     'Esolha um número: ',
     df['first column'])
 'Você selecionou: ', option
-    
+
+add_selectbox = st.sidebar.selectbox(
+    'Como você gostaria de ser contatado?',
+    ('Email', 'Telefone', 'Celular'))
+add_slider = st.sidebar.slider(
+    'Escolha uma faixa de valores:',
+    0.0,100.0,(25.0,75.0))
