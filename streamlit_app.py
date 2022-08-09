@@ -69,4 +69,4 @@ st.text_input('Your name', key='name')
 st.session_state.name
 
 if st.checkbox('Show dataframe'):
-    chart_data
+    st.line_chart(chart_data)
