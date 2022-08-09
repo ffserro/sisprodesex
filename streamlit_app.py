@@ -82,3 +82,11 @@ add_selectbox = st.sidebar.selectbox(
 add_slider = st.sidebar.slider(
     'Escolha uma faixa de valores:',
     0.0,100.0,(25.0,75.0))
+
+left_column, right_column = st.columns(2)
+left_column.button('Clique aqui!')
+with right_column:
+    chosen = st.radio(
+        'Chapéu seletor',
+        ('Grifinória', 'Corvinal', 'Lufa-Lufa', 'Sonserina'))
+    st.write(f'Você está na casa {chosen}!')
