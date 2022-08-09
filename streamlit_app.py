@@ -70,3 +70,9 @@ st.session_state.name
 
 if st.checkbox('Show dataframe'):
     st.line_chart(chart_data)
+
+option = st.selectbox(
+    'Esolha um número: ',
+    df['first column'])
+'Você selecionou: ', option
+    
