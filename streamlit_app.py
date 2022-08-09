@@ -36,7 +36,7 @@ with st.echo(code_location='below'):
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
 """
-df = DataFrame({
+df = pd.DataFrame({
     'first column':[1,2,3,4],
     'second column':[10,20,30,40]
 })
