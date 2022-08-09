@@ -8,7 +8,7 @@ import time
 
 st.markdown("# Main page")
 st.sidebar.markdown("# Main page")
-
+st.title("Aplicativo Teste")
 """
 # Welcome to Streamlit!
 
