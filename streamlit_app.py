@@ -44,3 +44,6 @@ df
 
 st.write("Teste de planilha:")
 st.table(df)
+
+dataframe = np.random.randn(10,20)
+st.dataframe(dataframe)
