@@ -16,8 +16,8 @@ with st.form('Inserir Fornecedores'):
     submeter = st.form_submit_button('Enviar')
 
 if submeter:
-    ins = pd.DataFrame([[cnpj, nome_empresa, num_nf, data_nf, recebedor, nip]])
-    df = pd.concat([df, ins], axis=1, ignore_index=True)
+    df.loc[-1] = [cnpj, nome_empresa, num_nf, data_nf, recebedor, nip]
+    df.index = df.index + 1
     df.to_csv('./bd_rosalvos.csv')
 
 st.dataframe(df)
