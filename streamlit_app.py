@@ -4,4 +4,11 @@ import pandas as pd
 
 st.title('Página teste do Rosalvito')
 
-dor = st.slidebar('Quanta dor você está sentindo hoje?',0,100)
+with st.form('Inserir Fornecedores'):
+    cnpj = st.text_input('CNPJ')
+    nome_empresa = st.text_input('Nome da empresa')
+    num_nf = st.text_input('Número da nota fiscal')
+    data_nf = st.date_input('Data da nota fiscal')
+    recebedor = st.text_input('Nome do recebedor')
+    nip = st.text_input('NIP do recebedor')
+    submeter = st.form_submit_button('Enviar')
