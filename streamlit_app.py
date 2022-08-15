@@ -17,7 +17,7 @@ with st.form('Inserir Fornecedores'):
 
 if submeter:
     ins = pd.DataFrame([cnpj, nome_empresa, num_nf, data_nf, recebedor, nip])
-    df = pd.concat([df, ins], axis=0)
+    df = pd.concat([df, ins], axis=1, ignore_index=True)
     df.to_csv('./bd_rosalvos.csv')
 
 st.table(df)
