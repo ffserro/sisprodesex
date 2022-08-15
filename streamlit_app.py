@@ -18,6 +18,7 @@ with st.form('Inserir Fornecedores'):
 if submeter:
     df.loc[-1] = [cnpj, nome_empresa, num_nf, data_nf, recebedor, nip]
     df.index = df.index + 1
+    st.write(f'dados = {[cnpj, nome_empresa, num_nf, data_nf, recebedor, nip]}')
     df.to_csv('./bd_rosalvos.csv')
 
 st.dataframe(df)
