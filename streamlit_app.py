@@ -20,4 +20,4 @@ if submeter:
     df = pd.concat([df, ins], axis=1, ignore_index=True)
     df.to_csv('./bd_rosalvos.csv')
 
-st.table(df)
+st.dataframe(df)
