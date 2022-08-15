@@ -1,106 +1,103 @@
-from collections import namedtuple
-import altair as alt
-import math
-import pandas as pd
+import streamlit_authenticator as stauth
 import streamlit as st
-import numpy as np
-import time
+import yaml
 
-st.markdown("# Main page")
-st.sidebar.markdown("# Main page")
-st.title("Aplicativo Teste")
-"""
-# Welcome to Streamlit!
+with open('./config.yaml') as file:
+    config = yaml.load(file, Loader=yaml.SafeLoader)
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
+authenticator = stauth.Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days'],
+    config['preauthorized']
+)
 
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+#Resetar a senha
+def reseta_senha():
+	if authentication_status:
+		try:
+			if authenticator.reset_password(username, 'Reset password'):
+				st.success('Password modified successfully')
+		except Exception as e:
+			st.error(e)
+		atualiza_dados()
 
-In the meantime, below is an example of what you can do with just a few lines of code:
-"""
-"""
-with st.echo(code_location='below'):
-    total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
-    num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
+#Adicionar usuário
+def adiciona_usuario():
+	try:
+		if authenticator.register_user('Register user', preauthorization=False):
+			st.success('User registered successfully')
+	except Exception as e:
+		st.error(e)
+	atualiza_dados()
 
-    Point = namedtuple('Point', 'x y')
-    data = []
+#Esqueci a senha:
+def esqueci_senha():
+	try:
+	    username_forgot_pw, email_forgot_password, random_password = authenticator.forgot_password('Forgot password')
+	    if username_forgot_pw:
+	        st.success('New password sent securely')
+	        # Random password to be transferred to user securely
+	    elif username_forgot_pw == False:
+	        st.error('Username not found')
+	except Exception as e:
+	    st.error(e)
+	atualiza_dados()
 
-    points_per_turn = total_points / num_turns
+#Esqueci o usuário:
+def esqueci_usuario():
+	try:
+	    username_forgot_username, email_forgot_username = authenticator.forgot_username('Forgot username')
+	    if username_forgot_username:
+	        st.success('Username sent securely')
+	        # Username to be transferred to user securely
+	    elif username_forgot_username == False:
+	        st.error('Email not found')
+	except Exception as e:
+	    st.error(e)
+	atualiza_dados()
 
-    for curr_point_num in range(total_points):
-        curr_turn, i = divmod(curr_point_num, points_per_turn)
-        angle = (curr_turn + 1) * 2 * math.pi * i / points_per_turn
-        radius = curr_point_num / total_points
-        x = radius * math.cos(angle)
-        y = radius * math.sin(angle)
-        data.append(Point(x, y))
 
-    st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
-        .mark_circle(color='#0068c9', opacity=0.5)
-        .encode(x='x:Q', y='y:Q'))
-"""
-df = pd.DataFrame({
-    'first column':[1,2,3,4],
-    'second column':[10,20,30,40]
-})
-df
+#Alterar dados dos usuários:
+def altera_dados():
+	if authentication_status:
+		try:
+			if authenticator.update_user_details(username, 'Update user details'):
+				st.success('Entries updated successfully')
+		except Exception as e:
+			st.error(e)
+		atualiza_dados()
 
-st.write("Teste de planilha:")
-st.table(df)
+#atualizar arquivo de usuários:
+def atualiza_dados():
+	with open('./config.yaml', 'w') as file:
+		yaml.dump(config, file, default_flow_style=False)
 
-dataframe = pd.DataFrame(np.random.randn(10,20),
-columns = ('col %d'%i for i in range(20)))
-st.dataframe(dataframe.style.highlight_max(axis=0))
+def default():
+	st.title('Teste')
 
-st.table(dataframe)
+name, authentication_status, username = authenticator.login('SISPRODESEX', 'main')
 
-chart_data = pd.DataFrame(
-    np.random.randn(20,3),
-    columns = ['a','b','c'])
-st.line_chart(chart_data)
-
-map_data = pd.DataFrame(
-    np.random.randn(1000,2) / [50,50] + [-22.88, -43.27],
-    columns = ['lat','lon'])
-st.map(map_data)
-
-x = st.slider('x')
-st.write(x, 'squared is', x**2)
-
-st.text_input('Your name', key='name')
-st.session_state.name
-
-if st.checkbox('Show dataframe'):
-    st.line_chart(chart_data)
-
-option = st.selectbox(
-    'Esolha um número: ',
-    df['first column'])
-'Você selecionou: ', option
-
-add_selectbox = st.sidebar.selectbox(
-    'Como você gostaria de ser contatado?',
-    ('Email', 'Telefone', 'Celular'))
-add_slider = st.sidebar.slider(
-    'Escolha uma faixa de valores:',
-    0.0,100.0,(25.0,75.0))
-
-left_column, right_column = st.columns(2)
-left_column.button('Clique aqui!')
-with right_column:
-    chosen = st.radio(
-        'Chapéu seletor',
-        ('Grifinória', 'Corvinal', 'Lufa-Lufa', 'Sonserina'))
-    st.write(f'Você está na casa {chosen}!')
-
-'Começando uma longa computação...'
-latest_iteration = st.empty()
-bar = st.progress(0)
-
-for i in range(100):
-    latest_iteration.text(f'Iteration {i+1}')
-    bar.progress(i+1)
-    time.sleep(0.1)
-"...and now we're done!"
+if st.session_state["authentication_status"]:
+	authenticator.logout('Sair', 'main')
+	st.title(f'Seja bem vindo,  *{st.session_state["name"]}*')
+	if st.session_state['name'] == 'admin':
+		pag = st.selectbox('Serviços disponíveis', ['-', 'Resetar a senha','Adicionar usuário', 'Trocar a senha', 'Trocar o usuário', 'Alterar dados'])
+		if pag == 'Resetar a senha':
+			reseta_senha()
+		elif pag == 'Adicionar usuário':
+			adiciona_usuario()
+		elif pag == 'Trocar a senha':
+			esqueci_senha()
+		elif pag == 'Trocar o usuário':
+			esqueci_usuario()
+		elif pag == 'Alterar dados':
+			altera_dados()
+	else:
+		pass
+	
+elif st.session_state["authentication_status"] == False:
+    st.error('Usuário ou senha incorretos')
+elif st.session_state["authentication_status"] == None:
+	pass
