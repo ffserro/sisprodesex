@@ -1,6 +1,6 @@
 import streamlit_authenticator as stauth
 import streamlit as st
-import yaml
+import pyyaml as yaml
 
 with open('./config.yaml') as file:
     config = yaml.load(file, Loader=yaml.SafeLoader)
