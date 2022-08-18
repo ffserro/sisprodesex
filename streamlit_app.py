@@ -6,11 +6,12 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
 db = firebase.database()
 
+'''
 def criar_usuario():
 	criar_usuario = st.form('Criar um novo usuário')
 	email = criar_usuario.text_input("Email", "", placeholder=None, disabled=False)
 	senha = criar_usuario.text_input("Senha", type="password")
-
+'''
 
 
 
@@ -74,12 +75,12 @@ def altera_dados():
 def atualiza_dados():
 	with open('./config.yaml', 'w') as file:
 		yaml.dump(config, file, default_flow_style=False)'''
-def admin():
-	st.title('Admin page')
+#def admin():
+	#st.title('Admin page')
 
 
-def default():
-	st.title('Teste')
+#def default():
+#	st.title('Teste')
 
 #name, authentication_status, username = authenticator.login('SISPRODESEX', 'main')
 login_form = st.form('Login')
@@ -97,7 +98,7 @@ if login_form.form_submit_button('Entrar'):
 		st.session_state['authentication_status'] = True
 		print(4)
 		if st.session_state['username'] == 'admin':
-			admin()
+			#admin()
 			'''st.session_state.runpage = admin
 			st.session_state.runpage()
 			st.experimental_rerun'''
