@@ -1,3 +1,4 @@
 streamlit
 pyrebase
 pyrebase4
+jwt
