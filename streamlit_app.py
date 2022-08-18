@@ -93,7 +93,7 @@ if login_form.form_submit_button('Entrar'):
 		st.write(1)
 		user = auth.sign_in_with_email_and_password(email, password)
 		st.write(2)
-		st.session_state['username'] = db.child('usuarios').order_by_child('email').equal_to(email).get().each()[0].val()['usuario']
+		st.session_state['username'] = db.child('usuarios').order_by_child('email').equal_to(user['email']).get().each()[0].val()['usuario']
 		st.write(3)
 		st.session_state['authentication_status'] = True
 		st.write(4)
