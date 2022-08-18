@@ -5,9 +5,34 @@ import numpy as np
 if 'authentication_status' not in st.session_state:
 	st.session_state['authentication_status'] = None
 if st.session_state['authentication_status'] == True:
-    st.markdown("# Seja bem vindo ao PRODESEX")
-    st.sidebar.markdown("# Page 2")
+    st.markdown("#Seja bem vindo ao PRODESEX")
+    st.sidebar.markdown("#Página principal")
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     DATE_COLUMN = 'date/time'
     DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
                 'streamlit-demo-data/uber-raw-data-sep14.csv.gz')

@@ -5,6 +5,7 @@ import pyrebase
 
 st.set_page_config(page_title='SISPRODESEX', page_icon=None, layout="centered", initial_sidebar_state="collapsed", menu_items=None)
 url = 'https://ffserro-streamlit-example-streamlit-app-nduyu5.streamlitapp.com/'
+
 firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
 db = firebase.database()
@@ -33,8 +34,7 @@ if st.session_state['authentication_status'] != True:
 			user = auth.sign_in_with_email_and_password(email, password)
 			st.session_state['username'] = db.child('usuarios').child('usuario').get().val()[db.child('usuarios').child('email').get().val().index(email)]
 			st.session_state['authentication_status'] = True
-			if st.session_state['username'] == 'admin':
-				nav_page('Principal')
+			nav_page('Principal')
 
 				'''st.session_state.runpage = admin
 				st.session_state.runpage()
@@ -44,27 +44,3 @@ if st.session_state['authentication_status'] != True:
 			st.write(type(ex).__name__)
 			st.write(ex.args)
 			st.warning('O email ou senha fornecidos são inválidos.')
-'''
-if st.session_state["authentication_status"]:
-	authenticator.logout('Sair', 'main')
-	st.title(f'Seja bem vindo,  *{st.session_state["name"]}*')
-	if st.session_state['name'] == 'admin':
-		pag = st.selectbox('Serviços disponíveis', ['-', 'Resetar a senha','Adicionar usuário', 'Trocar a senha', 'Trocar o usuário', 'Alterar dados'])
-		if pag == 'Resetar a senha':
-			reseta_senha()
-		elif pag == 'Adicionar usuário':
-			adiciona_usuario()
-		elif pag == 'Trocar a senha':
-			esqueci_senha()
-		elif pag == 'Trocar o usuário':
-			esqueci_usuario()
-		elif pag == 'Alterar dados':
-			altera_dados()
-	else:
-		pass
-	
-elif st.session_state["authentication_status"] == False:
-    st.error('Usuário ou senha incorretos')
-elif st.session_state["authentication_status"] == None:
-	pass
-'''
