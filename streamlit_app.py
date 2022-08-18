@@ -81,15 +81,15 @@ def default():
 #name, authentication_status, username = authenticator.login('SISPRODESEX', 'main')
 login_form = st.form('Login')
 login_form.subheader(form_name)
-	email = login_form.text_input('Email').lower()
-	st.session_state['email'] = email
-	password = login_form.text_input('Senha', type='password')
-	if login_form.form_submit_button('Entrar'):
-    	try:
-			user = auth.sign_in_with_email_and_password(email, password)
-			username = db.child('usuarios').order_by_child('email').equal_to(email).get().each()[0].val()['usuario']
-		except:
-			st.warning('O email ou senha fornecidos são inválidos.')
+email = login_form.text_input('Email').lower()
+st.session_state['email'] = email
+password = login_form.text_input('Senha', type='password')
+if login_form.form_submit_button('Entrar'):
+   	try:
+		user = auth.sign_in_with_email_and_password(email, password)
+		username = db.child('usuarios').order_by_child('email').equal_to(email).get().each()[0].val()['usuario']
+	except:
+		st.warning('O email ou senha fornecidos são inválidos.')
 '''
 if st.session_state["authentication_status"]:
 	authenticator.logout('Sair', 'main')
