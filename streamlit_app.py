@@ -35,11 +35,6 @@ if st.session_state['authentication_status'] != True:
 			st.session_state['username'] = db.child('usuarios').child('usuario').get().val()[db.child('usuarios').child('email').get().val().index(email)]
 			st.session_state['authentication_status'] = True
 			nav_page('Principal')
-
-				'''st.session_state.runpage = admin
-				st.session_state.runpage()
-				st.experimental_rerun()'''
-
 		except Exception as ex:
 			st.write(type(ex).__name__)
 			st.write(ex.args)
