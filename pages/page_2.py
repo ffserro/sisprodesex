@@ -4,7 +4,7 @@ import numpy as np
 
 
 st.markdown("# Page 2")
-st.sidebar.markdown("# Page 2")
+#st.sidebar.markdown("# Page 2")
 
 DATE_COLUMN = 'date/time'
 DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
