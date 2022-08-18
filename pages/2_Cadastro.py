@@ -15,6 +15,7 @@ if st.session_state['authentication_status'] == True:
         st.sidebar.markdown("# Cadastro")
         if 'message' in st.session_state and st.session_state['message'] != '':
             st.success(st.session_state['message'])
+            st.session_state['message'] = ''
         with st.form("Cadastro"):
             st.write("Novo Usuário")
             novo_email = st.text_input('Insira o email', key='eml')
@@ -38,8 +39,8 @@ if st.session_state['authentication_status'] == True:
         st.sidebar.markdown("# Cadastro")
         if 'message' in st.session_state and st.session_state['message'] != '':
             st.success(st.session_state['message'])
-        with st.form("Cadastro"):
-            st.write("Novo Usuário")
+        with st.form("Cadastro de excessos"):
+            st.write("Novo item")
             novo_email = st.text_input('Insira o email', key='eml')
             nova_senha = st.text_input('Insira a senha', type='password', key='snh')
             repetir_nova_senha = st.text_input('Repita a senha', type='password', key='nvs')
