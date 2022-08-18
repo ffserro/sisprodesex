@@ -4,9 +4,9 @@ import pandas as pd
 import numpy as np
 try:
     if st.session_state['authentication_status'] != True:
-        nav_page(streamlit_app)
+        nav_page('streamlit_app')
 except:
-    nav_page(streamlit_app)
+    nav_page('streamlit_app')
 
 st.markdown("# Page 2")
 #st.sidebar.markdown("# Page 2")
