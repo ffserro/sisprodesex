@@ -5,7 +5,7 @@ import numpy as np
 if 'authentication_status' not in st.session_state:
 	st.session_state['authentication_status'] = None
 if st.session_state['authentication_status'] == True:
-    st.markdown("# Page 2")
+    st.markdown("# Seja bem vindo ao PRODESEX")
     st.sidebar.markdown("# Page 2")
     
     DATE_COLUMN = 'date/time'
