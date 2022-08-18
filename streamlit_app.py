@@ -93,9 +93,10 @@ if login_form.form_submit_button('Entrar'):
 		st.session_state['username'] = db.child('usuarios').order_by_child('email').equal_to(email).get().each()[0].val()['usuario']
 		st.session_state['authentication_status'] = True
 		if st.session_state['username'] == 'admin':
-			st.session_state.runpage = admin
+			admin()
+			'''st.session_state.runpage = admin
 			st.session_state.runpage()
-			st.experimental_rerun
+			st.experimental_rerun'''
 
 	except:
 		st.warning('O email ou senha fornecidos são inválidos.')
