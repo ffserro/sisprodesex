@@ -3,7 +3,7 @@ from config import firebaseConfig
 import pyrebase
 
 st.set_page_config(page_title='SISPRODESEX', page_icon=None, layout="centered", initial_sidebar_state="collapsed", menu_items=None)
-
+url = 'https://ffserro-streamlit-example-streamlit-app-nduyu5.streamlitapp.com/'
 firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
 db = firebase.database()
