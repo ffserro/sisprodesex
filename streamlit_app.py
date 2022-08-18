@@ -74,6 +74,9 @@ def altera_dados():
 def atualiza_dados():
 	with open('./config.yaml', 'w') as file:
 		yaml.dump(config, file, default_flow_style=False)'''
+def admin():
+	st.title('Admin page')
+
 
 def default():
 	st.title('Teste')
@@ -87,7 +90,13 @@ password = login_form.text_input('Senha', type='password')
 if login_form.form_submit_button('Entrar'):
 	try:
 		user = auth.sign_in_with_email_and_password(email, password)
-		username = db.child('usuarios').order_by_child('email').equal_to(email).get().each()[0].val()['usuario']
+		st.session_state['username'] = db.child('usuarios').order_by_child('email').equal_to(email).get().each()[0].val()['usuario']
+		st.session_state['authentication_status'] = True
+		if st.session_state['username'] == 'admin':
+			st.session_state.runpage = admin
+			st.session_state.runpage()
+			st.experimental_rerun
+
 	except:
 		st.warning('O email ou senha fornecidos são inválidos.')
 '''
