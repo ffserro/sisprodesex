@@ -1,7 +1,9 @@
 import streamlit as st
+from utilidades import nav_page
 import pandas as pd
 import numpy as np
-
+if st.session_state['authentication_status'] != True:
+    nav_page(streamlit_app)
 
 st.markdown("# Page 2")
 #st.sidebar.markdown("# Page 2")
