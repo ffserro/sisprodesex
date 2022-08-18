@@ -1,20 +1,21 @@
-import streamlit_authenticator as stauth
 import streamlit as st
-import yaml
+from config import firebaseConfig
+import pyrebase
 
-with open('./config.yaml') as file:
-    config = yaml.load(file, Loader=yaml.SafeLoader)
+firebase = pyrebase.initialize_app(firebaseConfig)
+auth = firebase.auth()
+db = firebase.database()
 
-authenticator = stauth.Authenticate(
-    config['credentials'],
-    config['cookie']['name'],
-    config['cookie']['key'],
-    config['cookie']['expiry_days'],
-    config['preauthorized']
-)
+def criar_usuario():
+	criar_usuario = st.form('Criar um novo usuário')
+	email = criar_usuario.text_input("Email", "", placeholder=None, disabled=False)
+	senha = criar_usuario.text_input("Senha", type="password")
+
+
+
 
 #Resetar a senha
-def reseta_senha():
+'''def reseta_senha():
 	if authentication_status:
 		try:
 			if authenticator.reset_password(username, 'Reset password'):
@@ -72,13 +73,24 @@ def altera_dados():
 #atualizar arquivo de usuários:
 def atualiza_dados():
 	with open('./config.yaml', 'w') as file:
-		yaml.dump(config, file, default_flow_style=False)
+		yaml.dump(config, file, default_flow_style=False)'''
 
 def default():
 	st.title('Teste')
 
-name, authentication_status, username = authenticator.login('SISPRODESEX', 'main')
-
+#name, authentication_status, username = authenticator.login('SISPRODESEX', 'main')
+login_form = st.form('Login')
+login_form.subheader(form_name)
+	email = login_form.text_input('Email').lower()
+    st.session_state['email'] = email
+    password = login_form.text_input('Senha', type='password')
+    if login_form.form_submit_button('Entrar'):
+        try:
+			user = auth.sign_in_with_email_and_password(email, password)
+			username = db.child('usuarios').order_by_child('email').equal_to(email).get().each()[0].val()['usuario']
+		except:
+			st.warning('O email ou senha fornecidos são inválidos.')
+'''
 if st.session_state["authentication_status"]:
 	authenticator.logout('Sair', 'main')
 	st.title(f'Seja bem vindo,  *{st.session_state["name"]}*')
@@ -101,3 +113,4 @@ elif st.session_state["authentication_status"] == False:
     st.error('Usuário ou senha incorretos')
 elif st.session_state["authentication_status"] == None:
 	pass
+'''
