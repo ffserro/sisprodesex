@@ -15,68 +15,6 @@ def criar_usuario():
 	senha = criar_usuario.text_input("Senha", type="password")
 '''
 
-
-
-#Resetar a senha
-'''def reseta_senha():
-	if authentication_status:
-		try:
-			if authenticator.reset_password(username, 'Reset password'):
-				st.success('Password modified successfully')
-		except Exception as e:
-			st.error(e)
-		atualiza_dados()
-
-#Adicionar usuário
-def adiciona_usuario():
-	try:
-		if authenticator.register_user('Register user', preauthorization=False):
-			st.success('User registered successfully')
-	except Exception as e:
-		st.error(e)
-	atualiza_dados()
-
-#Esqueci a senha:
-def esqueci_senha():
-	try:
-	    username_forgot_pw, email_forgot_password, random_password = authenticator.forgot_password('Forgot password')
-	    if username_forgot_pw:
-	        st.success('New password sent securely')
-	        # Random password to be transferred to user securely
-	    elif username_forgot_pw == False:
-	        st.error('Username not found')
-	except Exception as e:
-	    st.error(e)
-	atualiza_dados()
-
-#Esqueci o usuário:
-def esqueci_usuario():
-	try:
-	    username_forgot_username, email_forgot_username = authenticator.forgot_username('Forgot username')
-	    if username_forgot_username:
-	        st.success('Username sent securely')
-	        # Username to be transferred to user securely
-	    elif username_forgot_username == False:
-	        st.error('Email not found')
-	except Exception as e:
-	    st.error(e)
-	atualiza_dados()
-
-
-#Alterar dados dos usuários:
-def altera_dados():
-	if authentication_status:
-		try:
-			if authenticator.update_user_details(username, 'Update user details'):
-				st.success('Entries updated successfully')
-		except Exception as e:
-			st.error(e)
-		atualiza_dados()
-
-#atualizar arquivo de usuários:
-def atualiza_dados():
-	with open('./config.yaml', 'w') as file:
-		yaml.dump(config, file, default_flow_style=False)'''
 def admin():
 	st.experimental_rerun()
 	st.title('Admin page')
@@ -97,7 +35,7 @@ if login_form.form_submit_button('Entrar'):
 		st.session_state['username'] = db.child('usuarios').child('usuario').get().val()[db.child('usuarios').child('email').get().val().index(email)]
 		st.session_state['authentication_status'] = True
 		if st.session_state['username'] == 'admin':
-			admin()
+			page_2
 			'''st.session_state.runpage = admin
 			st.session_state.runpage()
 			st.experimental_rerun()'''
