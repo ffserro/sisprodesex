@@ -103,9 +103,8 @@ if login_form.form_submit_button('Entrar'):
 			st.experimental_rerun'''
 		print(5)
 
-	except:
-		print(st.session_state['authentication_status'])
-		print(st.session_state['username'])
+	except Exception as ex:
+		print(type(ex).__name__)
 		st.warning('O email ou senha fornecidos são inválidos.')
 '''
 if st.session_state["authentication_status"]:
