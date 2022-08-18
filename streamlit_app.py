@@ -9,6 +9,9 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
 db = firebase.database()
 
+if 'authentication_status' not in st.session_state:
+	st.session_state['authentication_status'] = None
+
 '''
 def criar_usuario():
 	criar_usuario = st.form('Criar um novo usuário')
