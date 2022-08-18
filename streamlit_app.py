@@ -97,7 +97,7 @@ if login_form.form_submit_button('Entrar'):
 			#admin()
 			st.session_state.runpage = admin
 			st.session_state.runpage()
-			st.experimental_rerun
+			st.experimental_rerun()
 		st.write(5)
 
 	except Exception as ex:
