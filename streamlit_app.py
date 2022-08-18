@@ -1,5 +1,5 @@
 import streamlit as st
-import streamlit.components.v1 as components
+from utilidades import nav_page
 from config import firebaseConfig
 import pyrebase
 
@@ -36,7 +36,8 @@ if login_form.form_submit_button('Entrar'):
 		st.session_state['username'] = db.child('usuarios').child('usuario').get().val()[db.child('usuarios').child('email').get().val().index(email)]
 		st.session_state['authentication_status'] = True
 		if st.session_state['username'] == 'admin':
-			components.iframe(url+'page_2')
+			nav_page('page_2')
+
 			'''st.session_state.runpage = admin
 			st.session_state.runpage()
 			st.experimental_rerun()'''
