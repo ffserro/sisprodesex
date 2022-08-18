@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 if 'authentication_status' not in st.session_state:
 	st.session_state['authentication_status'] = None
-if session_state['authentication_status'] == True:
+if st.session_state['authentication_status'] == True:
     st.markdown("# Page 2")
     st.sidebar.markdown("# Page 2")
     
