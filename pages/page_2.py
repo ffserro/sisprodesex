@@ -2,12 +2,14 @@ import streamlit as st
 from utilidades import nav_page
 import pandas as pd
 import numpy as np
+
 if session_state['authentication_status'] == True:
     st.markdown("# Page 2")
     st.sidebar.markdown("# Page 2")
+    
     DATE_COLUMN = 'date/time'
     DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
-            'streamlit-demo-data/uber-raw-data-sep14.csv.gz')
+                'streamlit-demo-data/uber-raw-data-sep14.csv.gz')
     @st.cache
     def load_data(nrows):
         data = pd.read_csv(DATA_URL, nrows=nrows)
@@ -15,9 +17,11 @@ if session_state['authentication_status'] == True:
         data.rename(lowercase, axis='columns', inplace=True)
         data[DATE_COLUMN] = pd.to_datetime(data[DATE_COLUMN])
         return data
-     data_load_state = st.text('Loading data...')
+
+    data_load_state = st.text('Loading data...')
     data = load_data(10000)
     data_load_state.text("Done! (using st.cache)")
+    
     if st.checkbox('Show raw data'):
         st.subheader('Raw data')
         st.write(data)
