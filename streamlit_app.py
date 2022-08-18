@@ -90,19 +90,19 @@ st.session_state['email'] = email
 password = login_form.text_input('Senha', type='password')
 if login_form.form_submit_button('Entrar'):
 	try:
-		print(1)
+		st.write(1)
 		user = auth.sign_in_with_email_and_password(email, password)
-		print(2)
+		st.write(2)
 		st.session_state['username'] = db.child('usuarios').order_by_child('email').equal_to(email).get().each()[0].val()['usuario']
-		print(3)
+		st.write(3)
 		st.session_state['authentication_status'] = True
-		print(4)
+		st.write(4)
 		if st.session_state['username'] == 'admin':
 			#admin()
 			'''st.session_state.runpage = admin
 			st.session_state.runpage()
 			st.experimental_rerun'''
-		print(5)
+		st.write(5)
 
 	except Exception as ex:
 		st.write(type(ex).__name__)
