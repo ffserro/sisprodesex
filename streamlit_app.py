@@ -76,6 +76,7 @@ def atualiza_dados():
 	with open('./config.yaml', 'w') as file:
 		yaml.dump(config, file, default_flow_style=False)'''
 def admin():
+	st.experimental_rerun()
 	st.title('Admin page')
 
 
