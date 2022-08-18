@@ -75,8 +75,8 @@ def altera_dados():
 def atualiza_dados():
 	with open('./config.yaml', 'w') as file:
 		yaml.dump(config, file, default_flow_style=False)'''
-#def admin():
-	#st.title('Admin page')
+def admin():
+	st.title('Admin page')
 
 
 #def default():
@@ -90,18 +90,14 @@ st.session_state['email'] = email
 password = login_form.text_input('Senha', type='password')
 if login_form.form_submit_button('Entrar'):
 	try:
-		st.write(1)
 		user = auth.sign_in_with_email_and_password(email, password)
-		st.write(2)
 		st.session_state['username'] = db.child('usuarios').child('usuario').get().val()[db.child('usuarios').child('email').get().val().index(email)]
-		st.write(3)
 		st.session_state['authentication_status'] = True
-		st.write(4)
 		if st.session_state['username'] == 'admin':
 			#admin()
-			'''st.session_state.runpage = admin
+			st.session_state.runpage = admin
 			st.session_state.runpage()
-			st.experimental_rerun'''
+			st.experimental_rerun
 		st.write(5)
 
 	except Exception as ex:
