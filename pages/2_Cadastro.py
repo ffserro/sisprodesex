@@ -9,7 +9,7 @@ if st.session_state['authentication_status'] == True:
     if st.session_state['username'] == 'admin':
         st.markdown("# Cadastro de usuários")
         st.sidebar.markdown("#")
-        if st.session_state['message']:
+        if 'message' in st.session_state and st.session_state['message'] != '':
             st.success(st.session_state['message'])
         with st.form("Cadastro"):
             st.write("Novo Usuário")
