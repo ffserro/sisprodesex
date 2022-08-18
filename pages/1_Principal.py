@@ -2,6 +2,9 @@ import streamlit as st
 from utilidades import nav_page
 import pandas as pd
 import numpy as np
+
+
+st.set_page_config(page_title='SISPRODESEX', page_icon=None, layout="centered", initial_sidebar_state="expanded", menu_items=None)
 if 'authentication_status' not in st.session_state:
 	st.session_state['authentication_status'] = None
 if st.session_state['authentication_status'] == True:
