@@ -4,11 +4,13 @@ from utilidades import nav_page
 
 if 'authentication_status' not in st.session_state:
 	st.session_state['authentication_status'] = None
+
 if st.session_state['authentication_status'] == True:
     if st.session_state['username'] == 'admin':
         st.markdown("# Cadastro de usuários")
         st.sidebar.markdown("#")
-
+        if st.session_state['message']:
+            st.success(st.session_state['message'])
         with st.form("Cadastro"):
             st.write("Novo Usuário")
             novo_email = st.text_input('Insira o email')
