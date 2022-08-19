@@ -40,11 +40,11 @@ if st.session_state['authentication_status'] == True:
     else:
         st.markdown("# Cadastro de itens")
         st.sidebar.markdown("# Cadastro")
-        st.write(list(db.child('itens').order_by_child('id').limit_to_last(1).get().val().values())[0]['id'])
         if 'message' in st.session_state and st.session_state['message'] != '':
             st.success(st.session_state['message'])
         with st.form("Cadastro de excessos"):
             st.write("Novo item")
+            id_item = int(list(db.child('itens').order_by_child('id').limit_to_last(1).get().val().values())[0]['id']) + 1
             pi_item = st.text_input('Insira PI', key='pii')
             nome_item = st.text_input('Insira o nome do item', key='nmi')
             desc_item = st.text_area('Descrição do item', key='dsi')
@@ -67,7 +67,7 @@ if st.session_state['authentication_status'] == True:
                 else:
                     st.session_state['message'] = 'Cadastro realizado com sucesso'
                     db.child('itens').push(
-                        {'id':list(db.child('itens').order_by_child('id').limit_to_last(1).get().val().values())[0]['id']+1,
+                        {'id':id_item,
                         'pi':pi_item,
                         'nome':nome_item,
                         'descricao':desc_item,
