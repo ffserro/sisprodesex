@@ -47,6 +47,10 @@ gb.configure_pagination(paginationAutoPageSize=True)
 gb.configure_grid_options(domLayout='normal')
 gridOptions = gb.build()
 
+
+
+st.write('# Envio dos itens cadastrados')
+
 grid_response = AgGrid(
     df, 
     gridOptions=gridOptions,
