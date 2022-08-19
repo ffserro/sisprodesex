@@ -2,6 +2,7 @@ streamlit
 pyrebase4
 PyJWT==1.7.1
 streamlit-elements
+streamlit-aggrid
 
 # Streamlit components
 streamlit-ace
