@@ -45,7 +45,7 @@ if st.session_state['authentication_status'] == True:
             pi_item = st.text_input('Insira PI', key='pii')
             nome_item = st.text_input('Insira o nome do item', key='nmi')
             desc_item = st.text_area('Descrição do item', key='dsi')
-            f3, f4 = st.columns([1,1]):
+            f3, f4 = st.columns([1,1])
                 with f3:
                     lvad_item = st.text_input('LVAD', key='lvi')
                 with f4:
