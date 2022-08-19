@@ -19,7 +19,7 @@ for i in query:
 df_itens = df_itens.set_index('id')
 print(df_itens)
 
-gb = GridOptionsBuilder.from_dataframe(10)
+gb = GridOptionsBuilder.from_dataframe(df_itens)
 gb
 
 '''
