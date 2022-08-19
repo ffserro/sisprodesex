@@ -71,7 +71,7 @@ if enable_pagination:
 df = df_itens
 
 #Infer basic colDefs from dataframe types
-gb = GridOptionsBuilder.from_dataframe(df)
+gb = GridOptionsBuilder.from_dataframe(df[['data_envio', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem']])
 
 #customize gridOptions
 gb.configure_default_column(maintainColumnOrder=True, groupable=True, value=True, enableRowGroup=True, aggFunc='sum', editable=False)
