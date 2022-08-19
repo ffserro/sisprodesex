@@ -64,8 +64,7 @@ else:
         )
 
 
-    with st.form(''):
-        enviar = st.form_submit_button('Enviar para o depósito')
+    enviar = st.button('Enviar para o depósito')
 
     if enviar:
         pass
