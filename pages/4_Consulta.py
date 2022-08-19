@@ -79,11 +79,11 @@ gb.configure_column("pi", type=["numericColumn","numberColumnFilter","customNume
 gb.configure_column("nome", type=["numericColumn", "numberColumnFilter", "customNumericFormat"], precision=1, aggFunc='avg')
 gb.configure_column("descricao", type=["numericColumn", "numberColumnFilter", "customCurrencyFormat"], custom_currency_symbol="R$", aggFunc='max')
 gb.configure_column("lvad", type=["numericColumn", "numberColumnFilter", "customCurrencyFormat"], custom_currency_symbol="R$", aggFunc='max')
-gb.configure_column("preco_unitario", type=["customCurrencyFormat"], custom_currency_symbol="R$", aggFunc='max')
-gb.configure_column("quantidade", type=["numericColumn", "numberColumnFilter", "customCurrencyFormat"], custom_currency_symbol="R$", aggFunc='max')
-gb.configure_column("situacao", type=["numericColumn", "numberColumnFilter", "customCurrencyFormat"], custom_currency_symbol="R$", aggFunc='max')
-gb.configure_column("uf", type=["numericColumn", "numberColumnFilter", "customCurrencyFormat"], custom_currency_symbol="R$", aggFunc='max')
-gb.configure_column("origem", type=["numericColumn", "numberColumnFilter", "customCurrencyFormat"], custom_currency_symbol="R$", aggFunc='max')
+gb.configure_column("preco_unitario", type=["customCurrencyFormat"], custom_currency_symbol="R$", aggFunc='sum')
+gb.configure_column("quantidade", type=["numericColumn"], aggFunc='max')
+gb.configure_column("situacao", type=["numericColumn", "numberColumnFilter", "customCurrencyFormat"], aggFunc='max')
+gb.configure_column("uf", type=["numericColumn", "numberColumnFilter", "customCurrencyFormat"], aggFunc='max')
+gb.configure_column("origem")
 
 
 
