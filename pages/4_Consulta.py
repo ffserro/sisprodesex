@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
+from streamlit_elements import elements, mui, html, dashboard
 from streamlit_app import db
 df_itens = pd.DataFrame(columns=['pi', 'nome', 'descricao', 'lvad', 'data_envio', 'preco_unitario', 'quantidade', 'situacao', 'uf'])
 query = db.child('itens').order_by_child('situacao').equal_to('cadastrado').get().val().values()
@@ -22,8 +23,6 @@ with elements("dashboard"):
 
     # You can create a draggable and resizable dashboard using
     # any element available in Streamlit Elements.
-
-    from streamlit_elements import dashboard
 
     # First, build a default layout for every element you want to include in your dashboard
 
