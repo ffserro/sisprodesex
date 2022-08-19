@@ -43,6 +43,7 @@ def main():
             #w.pie(w.editor.get_content("Pie chart"))
             #w.radar(w.editor.get_content("Radar chart"))
             #w.card(w.editor.get_content("Card content"))
+            st.write(pd.DataFrame(query))
             w.data_grid(w.editor.get_content("Data grid"))
 
 
