@@ -64,6 +64,11 @@ else:
         )
 
 
+    with st.form():
+        enviar = st.form_submit_button('Enviar para o depósito')
+
+    if enviar:
+        pass
     df_final = grid_response['data']
     selected = grid_response['selected_rows']
     selected_df = pd.DataFrame(selected)
