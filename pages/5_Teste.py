@@ -11,7 +11,7 @@ from streamlit_gallery.components.elements.dashboard import Dashboard, Editor, C
 
 st.set_page_config(layout="wide")
 
-if auth.current_user == None:
+if st.session_state['authentication_status'] != True:
     nav_page('')
 else:
 

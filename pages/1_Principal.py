@@ -6,7 +6,7 @@ import numpy as np
 
 
 st.set_page_config(page_title='SISPRODESEX', page_icon=None, layout="centered", initial_sidebar_state="expanded", menu_items=None)
-if auth.current_user == None:
+if st.session_state['authentication_status'] != True:
     nav_page('')
 else:
     st.markdown("# Seja bem vindo ao PRODESEX")

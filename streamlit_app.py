@@ -9,7 +9,7 @@ firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 db = firebase.database()
 
-auth.current_user = None
+st.session_state['authentication_status'] = False
 
 login_form = st.form('Login')
 login_form.subheader('SISPRODESEX')
@@ -21,7 +21,6 @@ if login_form.form_submit_button('Entrar'):
 		user = auth.sign_in_with_email_and_password(email, password)
 		st.session_state['username'] = list(db.child('usuarios').order_by_child('email').equal_to(st.session_state['email']).get().val().values())[0]['usuario']
 		st.session_state['authentication_status'] = True
-		auth.current_user = st.session_state.username
 		nav_page('Principal')
 	except Exception as ex:
 		st.write(type(ex).__name__)
