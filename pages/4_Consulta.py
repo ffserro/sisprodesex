@@ -103,7 +103,6 @@ function(params) {
     }
 };
 """)
-gb.configure_column("group", cellStyle=cellsytle_jscode)
 
 if enable_sidebar:
     gb.configure_side_bar()
