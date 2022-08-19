@@ -8,8 +8,8 @@ st.set_page_config(page_title='SISPRODESEX', page_icon=None, layout="centered", 
 if 'authentication_status' not in st.session_state:
 	st.session_state['authentication_status'] = None
 if st.session_state['authentication_status'] == True:
-    st.markdown("#Seja bem vindo ao PRODESEX")
-    st.sidebar.markdown("#Página principal")
+    st.markdown("# Seja bem vindo ao PRODESEX")
+    st.sidebar.markdown("# Página principal")
     
 
 
