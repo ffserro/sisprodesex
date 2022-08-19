@@ -46,10 +46,10 @@ if st.session_state['authentication_status'] == True:
             nome_item = st.text_input('Insira o nome do item', key='nmi')
             desc_item = st.text_area('Descrição do item', key='dsi')
             f3, f4 = st.columns([1,1])
-                with f3:
-                    lvad_item = st.text_input('LVAD', key='lvi')
-                with f4:
-                    uf_item = st.selectbox('UF', ('Unidade', 'Quilogramas', 'Litros', 'Fardos'))
+            with f3:
+                lvad_item = st.text_input('LVAD', key='lvi')
+            with f4:
+                uf_item = st.selectbox('UF', ('Unidade', 'Quilogramas', 'Litros', 'Fardos'))
             f1, f2 = st.columns([1,1])
             with f1:
                 quant_item = st.number_input('Quantidade', min_value=0, key='qti')
