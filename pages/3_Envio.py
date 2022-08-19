@@ -18,7 +18,7 @@ else:
     df_itens = df_itens.set_index('id')
     print(df_itens)
 
-    df = df_itens
+    df = df_itens[df_itens.situacao = 'cadastrado']
 
     #Infer basic colDefs from dataframe types
     gb = GridOptionsBuilder.from_dataframe(df[['data_envio', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem']])
