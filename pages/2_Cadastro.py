@@ -4,10 +4,8 @@ from utilidades import nav_page
 from datetime import datetime
 
 def clear_form():
-    for i in ['eml', 'snh', 'nvs', 'pii', 'nmi', 'lvi', 'dsi']:
-        st.session_state[i] = ''
-    for i in ['qti', 'vli']:
-        st.session_state[i] = 0
+    for i in ['eml', 'snh', 'nvs', 'pii', 'nmi', 'lvi', 'dsi','qti', 'vli']:
+        del st.session_state[i]
 
 if 'authentication_status' not in st.session_state:
 	st.session_state['authentication_status'] = None
