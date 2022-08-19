@@ -6,8 +6,13 @@ from streamlit import session_state as state
 from streamlit_elements import elements, sync, event
 from types import SimpleNamespace
 
-from dashboard.dashboard import Dashboard
-#, Editor, Card, DataGrid, Radar, Pie, Player
+from streamlit_gallery.components.elements.dashboard.dashboard import Dashboard
+from streamlit_gallery.components.elements.dashboard.editor import Editor
+from streamlit_gallery.components.elements.dashboard.card import Card
+from streamlit_gallery.components.elements.dashboard.datagrid import DataGrid
+from streamlit_gallery.components.elements.dashboard.radar import Radar
+from streamlit_gallery.components.elements.dashboard.pie import Pie
+from streamlit_gallery.components.elements.dashboard.player import Player
 
 
 def main():
