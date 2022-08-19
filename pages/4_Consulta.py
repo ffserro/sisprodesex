@@ -20,7 +20,14 @@ df_itens = df_itens.set_index('id')
 print(df_itens)
 
 gb = GridOptionsBuilder.from_dataframe(df_itens)
-gb
+
+grid_response = AgGrid(
+    df_itens
+    )
+
+df = grid_response['data']
+selected = grid_response['selected_rows']
+selected_df = pd.DataFrame(selected).apply(pd.to_numeric, errors='coerce')
 
 '''
 np.random.seed(42)
