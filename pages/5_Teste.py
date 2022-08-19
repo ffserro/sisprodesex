@@ -38,11 +38,11 @@ def main():
         event.Hotkey("ctrl+s", sync(), bindInputs=True, overrideDefault=True)
 
         with w.dashboard(rowHeight=57):
-            w.editor()
-            w.player()
-            w.pie(w.editor.get_content("Pie chart"))
-            w.radar(w.editor.get_content("Radar chart"))
-            w.card(w.editor.get_content("Card content"))
+            #w.editor()
+            #w.player()
+            #w.pie(w.editor.get_content("Pie chart"))
+            #w.radar(w.editor.get_content("Radar chart"))
+            #w.card(w.editor.get_content("Card content"))
             w.data_grid(w.editor.get_content("Data grid"))
 
 
