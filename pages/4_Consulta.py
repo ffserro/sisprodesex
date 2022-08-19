@@ -135,7 +135,6 @@ st.markdown("""
 grid_response = AgGrid(
     df, 
     gridOptions=gridOptions,
-    height=grid_height, 
     width='100%',
     data_return_mode=return_mode_value, 
     update_mode=update_mode_value,
