@@ -141,8 +141,9 @@ grid_response = AgGrid(
     data_return_mode=return_mode_value, 
     update_mode=update_mode_value,
     allow_unsafe_jscode=True, #Set it to True to allow jsfunction to be injected
-    enable_enterprise_modules=enable_enterprise_modules
+    theme='streamlit'    
     )
+
 
 df_final = grid_response['data']
 selected = grid_response['selected_rows']
