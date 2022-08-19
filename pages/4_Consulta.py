@@ -137,7 +137,7 @@ st.markdown("""
 grid_response = AgGrid(
     df, 
     gridOptions=gridOptions,
-    width='100%',
+    fit_columns_on_grid_load = True,
     data_return_mode=return_mode_value, 
     update_mode=update_mode_value,
     fit_columns_on_grid_load=fit_columns_on_grid_load,
