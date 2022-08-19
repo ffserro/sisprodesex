@@ -26,14 +26,14 @@ def admin():
 if st.session_state['authentication_status'] != True:
 	login_form = st.form('Login')
 	login_form.subheader('SISPRODESEX')
-	email = login_form.text_input('Email').lower()
+	email = login_form.text_input('Email')
 	st.session_state['email'] = email
 	password = login_form.text_input('Senha', type='password')
 	if login_form.form_submit_button('Entrar'):
 		try:
 			user = auth.sign_in_with_email_and_password(email, password)
 			st.write(list(db.child('usuarios').order_by_child('email').equal_to(email).get().val().values())[0]['usuario'])
-			st.session_state['username'] = list(db.child('usuarios').order_by_child('email').equal_to(email).get().val().values())[0]['usuario']
+			st.session_state['username'] = list(db.child('usuarios').order_by_child('email').equal_to('admin@marinha.mil.br').get().val().values())[0]['usuario']
 			st.session_state['authentication_status'] = True
 			nav_page('Principal')
 		except Exception as ex:
