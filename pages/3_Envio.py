@@ -67,7 +67,8 @@ else:
     enviar = st.button('Enviar itens selecionados para o DepSMRJ')
 
     if enviar:
-        pass
+        ids = [i['rowIndex'] for i in grid_response['selected_rows']]
+        st.write(ids)
     df_final = grid_response['data']
     selected = grid_response['selected_rows']
     selected_df = pd.DataFrame(selected)
