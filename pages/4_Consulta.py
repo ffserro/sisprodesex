@@ -23,7 +23,6 @@ print(df_itens)
 st.sidebar.subheader("St-AgGrid example options")
 
 sample_size = st.sidebar.number_input("rows", min_value=10, value=30)
-grid_height = st.sidebar.number_input("Grid height", min_value=200, max_value=800, value=300)
 
 return_mode = st.sidebar.selectbox("Return Mode", list(DataReturnMode.__members__), index=1)
 return_mode_value = DataReturnMode.__members__[return_mode]
@@ -135,7 +134,6 @@ st.markdown("""
 grid_response = AgGrid(
     df, 
     gridOptions=gridOptions,
-    height=grid_height, 
     width='100%',
     data_return_mode=return_mode_value, 
     update_mode=update_mode_value,
