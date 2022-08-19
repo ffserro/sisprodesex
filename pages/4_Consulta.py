@@ -141,7 +141,7 @@ grid_response = AgGrid(
     data_return_mode=return_mode_value, 
     update_mode=update_mode_value,
     allow_unsafe_jscode=True, #Set it to True to allow jsfunction to be injected
-    theme='dark'    
+    theme='streamlit'    
     )
 
 
