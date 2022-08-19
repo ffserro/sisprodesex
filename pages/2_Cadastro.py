@@ -49,7 +49,10 @@ else:
             st.success(st.session_state['message'])
         with st.form("Cadastro de excessos", clear_on_submit=True):
             st.write("Novo item")
-            id_item = int(list(db.child('itens').order_by_child('id').limit_to_last(1).get().val().values())[0]['id']) + 1
+            try:
+                id_item = int(list(db.child('itens').order_by_child('id').limit_to_last(1).get().val().values())[0]['id']) + 1
+            else:
+                id_item = 0
             pi_item = st.text_input('Insira PI', key='pii')
             nome_item = st.text_input('Insira o nome do item', key='nmi')
             desc_item = st.text_area('Descrição do item', key='dsi')
