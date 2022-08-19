@@ -2,4 +2,16 @@ streamlit
 pyrebase4
 PyJWT==1.7.1
 streamlit-elements
+
+# Streamlit components
 streamlit-ace
+streamlit-discourse
+streamlit-disqus
+streamlit-elements
+streamlit-pandas-profiling
+streamlit-player
+streamlit-quill
+
+# Dependencies
+pandas-profiling
+requests
