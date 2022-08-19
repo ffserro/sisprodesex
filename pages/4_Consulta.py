@@ -12,7 +12,7 @@ from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 
 st.set_page_config(layout="wide")
 
-if st.session_state['authentication_status'] != True:
+if st.session_state['authentication_status'] != True or 'authentication_status' not in st.session_status:
     nav_page('')
 else:
 

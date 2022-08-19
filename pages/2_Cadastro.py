@@ -3,7 +3,7 @@ from streamlit_app import auth, db
 from utilidades import nav_page
 from datetime import datetime
 
-if st.session_state['authentication_status'] != True:
+if st.session_state['authentication_status'] != True or 'authentication_status' not in st.session_status:
     nav_page('')
 else:
     if st.session_state['username'] == 'admin':
