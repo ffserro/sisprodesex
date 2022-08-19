@@ -80,11 +80,11 @@ gb.configure_column("pi", 'PI')
 gb.configure_column("nome", 'Nome do item')
 gb.configure_column("descricao",'Descrição')
 gb.configure_column("lvad", 'LVAD')
-gb.configure_column("preco_unitario", type=["customCurrencyFormat"], custom_currency_symbol="R$", aggFunc='sum')
-gb.configure_column("quantidade", type=["numericColumn"], aggFunc='max')
-gb.configure_column("situacao")
-gb.configure_column("uf")
-gb.configure_column("origem")
+gb.configure_column("preco_unitario", 'Preço Unitário', type=["customCurrencyFormat"], custom_currency_symbol="R$", aggFunc='sum')
+gb.configure_column("quantidade", 'Quantidade', type=["numericColumn"], aggFunc='max')
+gb.configure_column("situacao", 'Situação')
+gb.configure_column("uf", 'UF')
+gb.configure_column("origem",'Origem')
 
 
 
