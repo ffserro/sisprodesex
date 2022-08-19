@@ -10,6 +10,8 @@ from itertools import cycle
 
 from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode, JsCode
 
+st.set_page_config(layout="wide")
+
 
 query = db.child('itens').order_by_child('situacao').equal_to('cadastrado').get().val().values()
 
