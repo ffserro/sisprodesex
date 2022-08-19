@@ -29,6 +29,10 @@ df = grid_response['data']
 selected = grid_response['selected_rows']
 selected_df = pd.DataFrame(selected).apply(pd.to_numeric, errors='coerce')
 
+st.write(df)
+st.write(selected)
+st.write(selected_df)
+
 '''
 np.random.seed(42)
 
