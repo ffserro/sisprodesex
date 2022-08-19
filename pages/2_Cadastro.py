@@ -3,10 +3,9 @@ from streamlit_app import auth, db
 from utilidades import nav_page
 from datetime import datetime
 
-if 'authentication_status' not in st.session_state:
-	st.session_state['authentication_status'] = None
-
-if st.session_state['authentication_status'] == True:
+if auth.current_user == None:
+    nav_page('')
+else:
     if st.session_state['username'] == 'admin':
         st.markdown("# Cadastro de usuários")
         st.sidebar.markdown("# Cadastro")
