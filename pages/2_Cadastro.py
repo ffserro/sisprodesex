@@ -37,7 +37,7 @@ if st.session_state['authentication_status'] == True:
                     st.session_state['message'] = 'Cadastro realizado com sucesso'
                     db.child('usuarios').push({
                         'email':novo_email,
-                        'origem':indicativo,
+                        'origem':indicativo.upper(),
                         'usuario':novo_usuario
                     })
                     auth.create_user_with_email_and_password(novo_email, nova_senha)
