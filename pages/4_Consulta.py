@@ -9,7 +9,7 @@ for i in query:
 st.write(df_itens)
 
 _selectable_data_table = components.declare_component(
-    "selectable_data_table")
+    "selectable_data_table", url="http://localhost:3001")
 
 def selectable_data_table(data, key=None):
     return _selectable_data_table(data=data, default=[], key=key)
