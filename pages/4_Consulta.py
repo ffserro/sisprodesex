@@ -201,13 +201,6 @@ with st.spinner("Displaying results..."):
     Experiment selecting rows, group and filtering and check how the chart updates to match.
     """)
 
-    st.altair_chart(chart, use_container_width=True)
-
-    st.subheader("Returned grid data:") 
-    #returning as HTML table bc streamlit has issues when rendering dataframes with timedeltas:
-    # https://github.com/streamlit/streamlit/issues/3781
-    st.markdown(grid_response['data'].to_html(), unsafe_allow_html=True)
-
     st.subheader("grid selection:")
     st.write(grid_response['selected_rows'])
 
