@@ -8,8 +8,8 @@ from .dashboard import Dashboard
 class DataGrid(Dashboard.Item):
 
     DEFAULT_COLUMNS = [
-        { "field": 'id', "headerName": 'ID', "width": 90 },
-        { "field": 'pi', "headerName": 'PI', "width": 90 },
+        { "field": 'id', "headerName": 'ID', "width": 30 },
+        { "field": 'pi', "headerName": 'PI', "width": 100 },
         { "field": 'nome', "headerName": 'Nome', "width": 90 },
         { "field": 'descricao', "headerName": 'Descrição', "width": 90 },
         { "field": 'quantidade', "headerName": 'Quantidade', "width": 90 },
