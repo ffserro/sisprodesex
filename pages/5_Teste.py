@@ -5,9 +5,11 @@ from pathlib import Path
 from streamlit import session_state as state
 from streamlit_elements import elements, sync, event
 from types import SimpleNamespace
+from streamlit_app import db
 
 from streamlit_gallery.components.elements.dashboard import Dashboard, Editor, Card, DataGrid, Radar, Pie, Player
 
+query = db.child('itens').order_by_child('situacao').equal_to('cadastrado').get().val().values()
 
 def main():
 
@@ -25,7 +27,7 @@ def main():
         state.w = w
 
         w.editor.add_tab("Card content", Card.DEFAULT_CONTENT, "plaintext")
-        w.editor.add_tab("Data grid", json.dumps(DataGrid.DEFAULT_ROWS, indent=2), "json")
+        w.editor.add_tab("Data grid", json.dumps(query, indent=2), "json")
         w.editor.add_tab("Radar chart", json.dumps(Radar.DEFAULT_DATA, indent=2), "json")
         w.editor.add_tab("Pie chart", json.dumps(Pie.DEFAULT_DATA, indent=2), "json")
     else:
