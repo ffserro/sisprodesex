@@ -11,6 +11,19 @@ from streamlit_gallery.components.elements.dashboard import Dashboard, Editor, C
 
 query = db.child('itens').order_by_child('situacao').equal_to('cadastrado').get().val().values()
 
+DEFAULT_ROWS = [
+        { "id": 1, "lastName": 'Snow', "firstName": 'Jon', "age": 35 },
+        { "id": 2, "lastName": 'Lannister', "firstName": 'Cersei', "age": 42 },
+        { "id": 3, "lastName": 'Lannister', "firstName": 'Jaime', "age": 45 },
+        { "id": 4, "lastName": 'Stark', "firstName": 'Arya', "age": 16 },
+        { "id": 5, "lastName": 'Targaryen', "firstName": 'Daenerys', "age": None },
+        { "id": 6, "lastName": 'Melisandre', "firstName": None, "age": 150 },
+        { "id": 7, "lastName": 'Clifford', "firstName": 'Ferrara', "age": 44 },
+        { "id": 8, "lastName": 'Frances', "firstName": 'Rossini', "age": 36 },
+        { "id": 9, "lastName": 'Roxie', "firstName": 'Harvey', "age": 65 },
+    ]
+
+
 def main():
 
     if "w" not in state:
@@ -27,7 +40,7 @@ def main():
         state.w = w
 
         w.editor.add_tab("Card content", Card.DEFAULT_CONTENT, "plaintext")
-        w.editor.add_tab("Data grid", [{"id": 1, "lastName": "Snow", "firstName": "Jon", "age": 35}, {"id": 2, "lastName": "Lannister", "firstName": "Cersei", "age": 42}, {"id": 3, "lastName": "Lannister", "firstName": "Jaime", "age": 45}, {"id": 4, "lastName": "Stark", "firstName": "Arya", "age": 16}, {"id": 5, "lastName": "Targaryen", "firstName": "Daenerys", "age": 20}, {"id": 6, "lastName": "Melisandre", "firstName": 0, "age": 150}, {"id": 7, "lastName": "Clifford", "firstName": "Ferrara", "age": 44}, {"id": 8, "lastName": "Frances", "firstName": "Rossini", "age": 36}, {"id": 9, "lastName": "Roxie", "firstName": "Harvey", "age": 65}], indent=2), "json")
+        w.editor.add_tab("Data grid", json.dumps(DEFAULT_ROWS, indent=2), "json")
         w.editor.add_tab("Radar chart", json.dumps(Radar.DEFAULT_DATA, indent=2), "json")
         w.editor.add_tab("Pie chart", json.dumps(Pie.DEFAULT_DATA, indent=2), "json")
     else:
