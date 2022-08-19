@@ -9,9 +9,14 @@ class DataGrid(Dashboard.Item):
 
     DEFAULT_COLUMNS = [
         { "field": 'id', "headerName": 'ID', "width": 90 },
-        { "field": 'firstName', "headerName": 'First name', "width": 150, "editable": True, },
-        { "field": 'lastName', "headerName": 'Last name', "width": 150, "editable": True, },
-        { "field": 'age', "headerName": 'Age', "type": 'number', "width": 110, "editable": True, },
+        { "field": 'pi', "headerName": 'ID', "width": 90 },
+        { "field": 'nome', "headerName": 'ID', "width": 90 },
+        { "field": 'descricao', "headerName": 'ID', "width": 90 },
+        { "field": 'quantidade', "headerName": 'ID', "width": 90 },
+        { "field": 'preco_unitario', "headerName": 'ID', "width": 90 },
+        { "field": 'uf', "headerName": 'ID', "width": 90 },
+        { "field": 'situacao', "headerName": 'ID', "width": 90 },
+        { "field": 'data_envio', "headerName": 'ID', "width": 90 },
     ]
     DEFAULT_ROWS = [
         { "id": 1, "lastName": 'Snow', "firstName": 'Jon', "age": 35 },
