@@ -68,7 +68,9 @@ else:
 
     if enviar:
         ids = [i['rowIndex'] for i in grid_response['selected_rows']]
-        st.write(ids)
+        for i in ids:
+            db.child('itens').child(list(db.child('itens').order_by_child('id').equal_to(i).get().val())[0]).update({'situacao':'Em trânsito'})
+        nav_page('Envio')
     df_final = grid_response['data']
     selected = grid_response['selected_rows']
     selected_df = pd.DataFrame(selected)
