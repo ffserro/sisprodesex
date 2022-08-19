@@ -1,4 +1,4 @@
-firebaseConfig = {
+config = {
   'apiKey': "AIzaSyA5ylnqAg64aMqPixVvh0JXABvI1tizeVk",
   'authDomain': "prodesex-8e59f.firebaseapp.com",
   'databaseURL': "https://prodesex-8e59f-default-rtdb.firebaseio.com",
