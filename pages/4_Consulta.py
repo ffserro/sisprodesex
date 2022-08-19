@@ -5,7 +5,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 from streamlit_elements import elements, mui, html, dashboard
 from streamlit_app import db
-from .dashboard import Dashboard, Editor, Card, DataGrid, Radar, Pie, Player
+from dashboard import Dashboard, Editor, Card, DataGrid, Radar, Pie, Player
 
 
 df_itens = pd.DataFrame(columns=['pi', 'nome', 'descricao', 'lvad', 'data_envio', 'preco_unitario', 'quantidade', 'situacao', 'uf'])
