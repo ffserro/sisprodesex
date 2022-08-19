@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit_app import auth
 from utilidades import nav_page
+from datetime import datetime
 
 def clear_form():
     for i in ['eml', 'snh', 'nvs', 'pii', 'nmi', 'lvi', 'dsi', 'qti', 'vli']:
@@ -41,23 +42,21 @@ if st.session_state['authentication_status'] == True:
             st.success(st.session_state['message'])
         with st.form("Cadastro de excessos"):
             st.write("Novo item")
-            pi_item = st.text_input('Insira o email', key='pii')
-            nome_item = st.text_input('Insira a senha', type='password', key='nmi')
+            pi_item = st.text_input('Insira PI', key='pii')
+            nome_item = st.text_input('Insira o nome do item', type='password', key='nmi')
             desc_item = st.text_area('Descrição do item', key='dsi')
             lvad_item = st.text_input('LVAD', key='lvi')
             f1, f2 = st.columns([1,1])
             with f1:
-                st.number_input('Quantidade', min_value=0, key='qti')
+                quant_item = st.number_input('Quantidade', min_value=0, key='qti')
             with f2:
-                st.number_input('Valor unitário', min_value=0, format='%.2f', key='vli')
+                preco_unit = st.number_input('Valor unitário', min_value=0, key='vli')
 
 
             enviado = st.form_submit_button("Cadastrar", on_click=clear_form)
             if enviado:
-                if '@' not in novo_email:
-                    st.warning('Insira um email válido')
-                elif nova_senha != repetir_nova_senha:
-                    st.warning('As senhas não conferem')
+                if pi_item == '', nome_item == '', desc_item == '', lvad_item == '', quant_item == '', preco_unit == '':
+                    st.warning('Preencha todos os campos')
                 else:
                     st.session_state['message'] = 'Cadastro realizado com sucesso'
                     auth.create_user_with_email_and_password(novo_email, nova_senha)
