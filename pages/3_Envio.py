@@ -1,5 +1,6 @@
 import streamlit as st
-from streamlit_app import db
+from streamlit_app import db, auth
+from utilidades import nav_page
 import streamlit as st
 import pandas as pd 
 from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
