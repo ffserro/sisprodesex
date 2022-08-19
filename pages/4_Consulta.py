@@ -21,53 +21,6 @@ for i in query:
 df_itens = df_itens.set_index('id')
 print(df_itens)
 
-#Example controlers
-st.sidebar.subheader("St-AgGrid example options")
-
-sample_size = st.sidebar.number_input("rows", min_value=10, value=30)
-
-return_mode = st.sidebar.selectbox("Return Mode", list(DataReturnMode.__members__), index=1)
-return_mode_value = DataReturnMode.__members__[return_mode]
-
-update_mode = st.sidebar.selectbox("Update Mode", list(GridUpdateMode.__members__), index=len(GridUpdateMode.__members__)-1)
-update_mode_value = GridUpdateMode.__members__[update_mode]
-
-#enterprise modules
-enable_enterprise_modules = st.sidebar.checkbox("Enable Enterprise Modules")
-if enable_enterprise_modules:
-    enable_sidebar =st.sidebar.checkbox("Enable grid sidebar", value=False)
-else:
-    enable_sidebar = False
-
-#features
-fit_columns_on_grid_load = st.sidebar.checkbox("Fit Grid Columns on Load")
-
-enable_selection=st.sidebar.checkbox("Enable row selection", value=True)
-if enable_selection:
-    st.sidebar.subheader("Selection options")
-    selection_mode = st.sidebar.radio("Selection Mode", ['single','multiple'], index=1)
-
-    use_checkbox = st.sidebar.checkbox("Use check box for selection", value=True)
-    if use_checkbox:
-        groupSelectsChildren = st.sidebar.checkbox("Group checkbox select children", value=True)
-        groupSelectsFiltered = st.sidebar.checkbox("Group checkbox includes filtered", value=True)
-
-    if ((selection_mode == 'multiple') & (not use_checkbox)):
-        rowMultiSelectWithClick = st.sidebar.checkbox("Multiselect with click (instead of holding CTRL)", value=False)
-        if not rowMultiSelectWithClick:
-            suppressRowDeselection = st.sidebar.checkbox("Suppress deselection (while holding CTRL)", value=False)
-        else:
-            suppressRowDeselection=False
-    st.sidebar.text("___")
-
-enable_pagination = st.sidebar.checkbox("Enable pagination", value=False)
-if enable_pagination:
-    st.sidebar.subheader("Pagination options")
-    paginationAutoSize = st.sidebar.checkbox("Auto pagination size", value=True)
-    if not paginationAutoSize:
-        paginationPageSize = st.sidebar.number_input("Page size", value=5, min_value=0, max_value=sample_size)
-    st.sidebar.text("___")
-
 df = df_itens
 
 #Infer basic colDefs from dataframe types
@@ -91,18 +44,10 @@ gb.configure_column("origem",'Origem')
 
 gb.configure_side_bar()
 
-if enable_selection:
-    gb.configure_selection(selection_mode)
-    if use_checkbox:
-        gb.configure_selection(selection_mode, use_checkbox=True, groupSelectsChildren=groupSelectsChildren, groupSelectsFiltered=groupSelectsFiltered)
-    if ((selection_mode == 'multiple') & (not use_checkbox)):
-        gb.configure_selection(selection_mode, use_checkbox=False, rowMultiSelectWithClick=rowMultiSelectWithClick, suppressRowDeselection=suppressRowDeselection)
+gb.configure_selection('multiple')
+gb.configure_selection('multiple', use_checkbox=True, groupSelectsChildren=True, groupSelectsFiltered=True)
 
-if enable_pagination:
-    if paginationAutoSize:
-        gb.configure_pagination(paginationAutoPageSize=True)
-    else:
-        gb.configure_pagination(paginationAutoPageSize=False, paginationPageSize=paginationPageSize)
+gb.configure_pagination(paginationAutoPageSize=True)
 
 gb.configure_grid_options(domLayout='normal')
 gridOptions = gb.build()
@@ -119,8 +64,8 @@ grid_response = AgGrid(
     df, 
     gridOptions=gridOptions,
     fit_columns_on_grid_load = True,
-    data_return_mode=return_mode_value, 
-    update_mode=update_mode_value,
+    data_return_mode='FILTERED', 
+    update_mode='GRID_CHANGED',
     allow_unsafe_jscode=True, #Set it to True to allow jsfunction to be injected
     theme='streamlit'    
     )
