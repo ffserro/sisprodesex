@@ -19,6 +19,10 @@ for i in query:
 df_itens = df_itens.set_index('id')
 print(df_itens)
 
+gb = GridOptionsBuilder(df_itens)
+gb
+
+'''
 np.random.seed(42)
 
 @st.cache(allow_output_mutation=True)
@@ -208,3 +212,4 @@ with st.spinner("Displaying results..."):
         Ag-Grid documentation can be read [here](https://www.ag-grid.com/documentation)
     """)
     st.write(gridOptions)
+    '''
