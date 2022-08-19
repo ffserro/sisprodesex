@@ -46,5 +46,4 @@ def main():
             w.data_grid(w.editor.get_content("Data grid"))
 
 
-st.set_page_config(layout="wide")
 main()
