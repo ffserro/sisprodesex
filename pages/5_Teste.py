@@ -29,7 +29,7 @@ def main():
         state.w = w
 
         w.editor.add_tab("Card content", Card.DEFAULT_CONTENT, "plaintext")
-        w.editor.add_tab("Data grid", json.dumps(query), "json")
+        w.editor.add_tab("Itens cadastrados", json.dumps(query), "json")
         w.editor.add_tab("Radar chart", json.dumps(Radar.DEFAULT_DATA, indent=2), "json")
         w.editor.add_tab("Pie chart", json.dumps(Pie.DEFAULT_DATA, indent=2), "json")
     else:
@@ -45,7 +45,7 @@ def main():
             #w.radar(w.editor.get_content("Radar chart"))
             #w.card(w.editor.get_content("Card content"))
             st.write(pd.DataFrame(query).set_index('id'))
-            w.data_grid(w.editor.get_content("Data grid"))
+            w.data_grid(w.editor.get_content("Itens cadastrados"))
 
 
 main()
