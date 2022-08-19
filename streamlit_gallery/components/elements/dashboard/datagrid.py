@@ -41,7 +41,7 @@ class DataGrid(Dashboard.Item):
         with mui.Paper(key=self._key, sx={"display": "flex", "flexDirection": "column", "borderRadius": 3, "overflow": "hidden"}, elevation=1):
             with self.title_bar(padding="10px 15px 10px 15px", dark_switcher=False):
                 mui.icon.ViewCompact()
-                mui.Typography("Data grid")
+                mui.Typography("Itens Cadastrados")
 
             with mui.Box(sx={"flex": 1, "minHeight": 0}):
                 mui.DataGrid(
