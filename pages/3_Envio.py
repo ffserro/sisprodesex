@@ -1,12 +1,7 @@
 import streamlit as st
 from streamlit_app import db
-from distutils import errors
-from distutils.log import error
 import streamlit as st
 import pandas as pd 
-import numpy as np
-import altair as alt
-from itertools import cycle
 
 from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 
