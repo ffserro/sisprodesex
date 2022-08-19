@@ -55,9 +55,21 @@ if st.session_state['authentication_status'] == True:
 
             enviado = st.form_submit_button("Cadastrar", on_click=clear_form)
             if enviado:
-                if pi_item == '', nome_item == '', desc_item == '', lvad_item == '', quant_item == '', preco_unit == '':
-                    st.warning('Preencha todos os campos')
+                if pi_item == '' or nome_item == '' or desc_item == '' or lvad_item == '' or quant_item == '' or preco_unit == '':
+                    st.warning('Por favor, preencha todos os campos')
                 else:
                     st.session_state['message'] = 'Cadastro realizado com sucesso'
-                    auth.create_user_with_email_and_password(novo_email, nova_senha)
+                    db.child('itens').push(
+                        {'id':(list(db.child('itens').order_by_child('id').limit_to_last(1).get().val().values())[0]['id']) + 1,
+                        'pi':pi_item,
+                        'nome':nome_item,
+                        'descricao':desc_item,
+                        'lvad':lvad_item,
+                        'data_envio':datetime.now().strftime("%d/%m/%Y"),
+                        'preco_unitario':preco_unit,
+                        'quantidade':quant_item,
+                        'situacao':'cadastrado',
+                        'uf':'unidade',
+                        'origem':st.session_state['username']}
+                    )
                     nav_page('Cadastro')
