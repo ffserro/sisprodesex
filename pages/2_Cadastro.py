@@ -17,14 +17,14 @@ if st.session_state['authentication_status'] == True:
         if 'message' in st.session_state and st.session_state['message'] != '':
             st.success(st.session_state['message'])
             st.session_state['message'] = ''
-        with st.form("Cadastro"):
+        with st.form("Cadastro", clear_on_submit=True):
             st.write("Novo Usuário")
             novo_email = st.text_input('Insira o email', key='eml')
             nova_senha = st.text_input('Insira a senha', type='password', key='snh')
             repetir_nova_senha = st.text_input('Repita a senha', type='password', key='nvs')
 
 
-            enviado = st.form_submit_button("Enviar", on_click=clear_form)
+            enviado = st.form_submit_button("Enviar")
             if enviado:
                 if '@' not in novo_email:
                     st.warning('Insira um email válido')
@@ -40,7 +40,7 @@ if st.session_state['authentication_status'] == True:
         st.sidebar.markdown("# Cadastro")
         if 'message' in st.session_state and st.session_state['message'] != '':
             st.success(st.session_state['message'])
-        with st.form("Cadastro de excessos"):
+        with st.form("Cadastro de excessos", clear_on_submit=True):
             st.write("Novo item")
             id_item = int(list(db.child('itens').order_by_child('id').limit_to_last(1).get().val().values())[0]['id']) + 1
             pi_item = st.text_input('Insira PI', key='pii')
@@ -77,5 +77,4 @@ if st.session_state['authentication_status'] == True:
                         'uf':uf_item,
                         'origem':st.session_state['username']}
                     )
-                    clear_form()
                     nav_page('Cadastro')
