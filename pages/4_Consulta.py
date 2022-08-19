@@ -52,14 +52,6 @@ gb.configure_pagination(paginationAutoPageSize=True)
 gb.configure_grid_options(domLayout='normal')
 gridOptions = gb.build()
 
-#Display the grid
-st.header("Streamlit Ag-Grid")
-st.markdown("""
-    AgGrid can handle many types of columns and will try to render the most human readable way.  
-    On editions, grid will fallback to string representation of data, DateTime and TimeDeltas are converted to ISO format.
-    Custom display formating may be applied to numeric fields, but returned data will still be numeric.
-""")
-
 grid_response = AgGrid(
     df, 
     gridOptions=gridOptions,
