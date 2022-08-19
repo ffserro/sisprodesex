@@ -74,6 +74,7 @@ gb = GridOptionsBuilder.from_dataframe(df)
 #customize gridOptions
 gb.configure_default_column(maintainColumnOrder=True, groupable=True, value=True, enableRowGroup=True, aggFunc='sum', editable=False)
 gb.configure_auto_height(True)
+gb.configure_pagination()
 gb.configure_column("data_envio", type=["dateColumnFilter","customDateTimeFormat"], custom_format_string='dd-MM-yyyy', pivot=True)
 gb.configure_column("pi")
 gb.configure_column("nome")
