@@ -4,7 +4,6 @@ from config import config
 import pyrebase
 
 st.set_page_config(page_title='SISPRODESEX', page_icon=None, layout="wide", initial_sidebar_state="collapsed", menu_items=None)
-url = 'https://ffserro-streamlit-example-streamlit-app-nduyu5.streamlitapp.com/'
 
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()

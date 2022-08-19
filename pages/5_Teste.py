@@ -10,6 +10,8 @@ from streamlit_app import db
 
 from streamlit_gallery.components.elements.dashboard import Dashboard, Editor, Card, DataGrid, Radar, Pie, Player
 
+st.set_page_config(layout="wide")
+
 query = list(db.child('itens').order_by_child('situacao').equal_to('cadastrado').get().val().values())
 
 
