@@ -66,7 +66,7 @@ if st.session_state['authentication_status'] == True:
                 else:
                     st.session_state['message'] = 'Cadastro realizado com sucesso'
                     db.child('itens').push(
-                        {'id':(list(db.child('itens').order_by_child('id').limit_to_last(1).get().val().values())[0]['id']) + 1,
+                        {'id':list(db.child('itens').order_by_child('id').limit_to_last(1).get().val().values())[0]['id']+1,
                         'pi':pi_item,
                         'nome':nome_item,
                         'descricao':desc_item,
