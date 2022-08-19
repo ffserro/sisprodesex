@@ -1,0 +1,73 @@
+import streamlit as st
+from streamlit_app import db
+from distutils import errors
+from distutils.log import error
+import streamlit as st
+import pandas as pd 
+import numpy as np
+import altair as alt
+from itertools import cycle
+
+from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
+
+st.set_page_config(layout="wide")
+
+
+query = db.child('itens').order_by_child('situacao').equal_to('cadastrado').get().val().values()
+
+df_itens = pd.DataFrame()
+for i in query:
+	df_itens = pd.concat([df_itens, pd.DataFrame({x:[i[x]] for x in i})],ignore_index=True)
+df_itens = df_itens.set_index('id')
+print(df_itens)
+
+df = df_itens
+
+#Infer basic colDefs from dataframe types
+gb = GridOptionsBuilder.from_dataframe(df[['data_envio', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem']])
+
+#customize gridOptions
+gb.configure_default_column(maintainColumnOrder=True, groupable=True, value=True, enableRowGroup=True, aggFunc='sum', editable=False)
+gb.configure_auto_height(True)
+gb.configure_pagination()
+gb.configure_column("data_envio", 'Data', type=["dateColumnFilter","customDateTimeFormat"], custom_format_string='dd-MM-yyyy', pivot=True)
+gb.configure_column("pi", 'PI')
+gb.configure_column("nome", 'Nome do item')
+gb.configure_column("descricao",'Descrição')
+gb.configure_column("lvad", 'LVAD')
+gb.configure_column("preco_unitario", 'Preço Unitário', type=["customCurrencyFormat"], custom_currency_symbol="R$", aggFunc='sum')
+gb.configure_column("quantidade", 'Quantidade', type=["numericColumn"], aggFunc='max')
+gb.configure_column("situacao", 'Situação')
+gb.configure_column("uf", 'UF')
+gb.configure_column("origem",'Origem')
+
+
+gb.configure_side_bar()
+
+gb.configure_selection('multiple')
+gb.configure_selection('multiple', use_checkbox=True, groupSelectsChildren=True, groupSelectsFiltered=True)
+
+gb.configure_pagination(paginationAutoPageSize=True)
+
+gb.configure_grid_options(domLayout='normal')
+gridOptions = gb.build()
+
+grid_response = AgGrid(
+    df, 
+    gridOptions=gridOptions,
+    fit_columns_on_grid_load = True,
+    data_return_mode='FILTERED', 
+    update_mode='GRID_CHANGED',
+    allow_unsafe_jscode=True, #Set it to True to allow jsfunction to be injected
+    theme='streamlit'    
+    )
+
+
+df_final = grid_response['data']
+selected = grid_response['selected_rows']
+selected_df = pd.DataFrame(selected)
+
+st.write(df_itens)
+st.write(df_final)
+st.write(selected)
+st.write(selected_df)
