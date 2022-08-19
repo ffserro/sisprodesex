@@ -64,7 +64,7 @@ else:
         )
 
 
-    enviar = st.button('Enviar itens selecionados para o depósito')
+    enviar = st.button('Enviar itens selecionados para o DepSMRJ')
 
     if enviar:
         pass
