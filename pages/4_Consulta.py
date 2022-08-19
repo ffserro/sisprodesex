@@ -19,16 +19,6 @@ for i in query:
 df_itens = df_itens.set_index('id')
 print(df_itens)
 
-from distutils import errors
-from distutils.log import error
-import streamlit as st
-import pandas as pd 
-import numpy as np
-import altair as alt
-from itertools import cycle
-
-from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode, JsCode
-
 np.random.seed(42)
 
 @st.cache(allow_output_mutation=True)
@@ -106,7 +96,7 @@ if enable_pagination:
 df = fetch_data(sample_size)
 
 #Infer basic colDefs from dataframe types
-gb = GridOptionsBuilder.from_dataframe(df_itens)
+gb = GridOptionsBuilder.from_dataframe(df)
 
 #customize gridOptions
 gb.configure_default_column(groupable=True, value=True, enableRowGroup=True, aggFunc='sum', editable=True)
@@ -163,7 +153,7 @@ st.markdown("""
 """)
 
 grid_response = AgGrid(
-    df_itens, 
+    df, 
     gridOptions=gridOptions,
     height=grid_height, 
     width='100%',
@@ -200,6 +190,13 @@ with st.spinner("Displaying results..."):
     This chart is built with data returned from the grid. rows that are selected are also identified.
     Experiment selecting rows, group and filtering and check how the chart updates to match.
     """)
+
+    st.altair_chart(chart, use_container_width=True)
+
+    st.subheader("Returned grid data:") 
+    #returning as HTML table bc streamlit has issues when rendering dataframes with timedeltas:
+    # https://github.com/streamlit/streamlit/issues/3781
+    st.markdown(grid_response['data'].to_html(), unsafe_allow_html=True)
 
     st.subheader("grid selection:")
     st.write(grid_response['selected_rows'])
