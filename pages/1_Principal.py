@@ -7,7 +7,7 @@ import numpy as np
 
 st.set_page_config(page_title='SISPRODESEX', page_icon=None, layout="centered", initial_sidebar_state="expanded", menu_items=None)
 if auth.current_user == None:
-    nav_page('../streamlit_app')
+    nav_page('main')
 else:
     st.markdown("# Seja bem vindo ao PRODESEX")
     st.sidebar.markdown("# Página principal")
