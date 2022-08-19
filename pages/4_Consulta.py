@@ -89,26 +89,7 @@ gb.configure_column("uf", 'UF')
 gb.configure_column("origem",'Origem')
 
 
-
-#configures last row to use custom styles based on cell's value, injecting JsCode on components front end
-cellsytle_jscode = JsCode("""
-function(params) {
-    if (params.value == 'A') {
-        return {
-            'color': 'white',
-            'backgroundColor': 'darkred'
-        }
-    } else {
-        return {
-            'color': 'black',
-            'backgroundColor': 'white'
-        }
-    }
-};
-""")
-
-if enable_sidebar:
-    gb.configure_side_bar()
+gb.configure_side_bar()
 
 if enable_selection:
     gb.configure_selection(selection_mode)
