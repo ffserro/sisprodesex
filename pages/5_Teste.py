@@ -1,13 +1,12 @@
 import json
 import streamlit as st
 import pandas as pd
-
 from pathlib import Path
 from streamlit import session_state as state
 from streamlit_elements import elements, sync, event
 from types import SimpleNamespace
 from streamlit_app import db
-
+from utilidades import nav_page
 from streamlit_gallery.components.elements.dashboard import Dashboard, Editor, Card, DataGrid, Radar, Pie, Player
 
 st.set_page_config(layout="wide")
