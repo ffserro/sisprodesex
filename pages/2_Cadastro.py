@@ -40,7 +40,7 @@ if st.session_state['authentication_status'] == True:
     else:
         st.markdown("# Cadastro de itens")
         st.sidebar.markdown("# Cadastro")
-        st.write(list(db.child('itens').order_by_child('id').get().val()))
+        st.write(list(db.child('itens').order_by_child('id').limit_to_last(1).get().val()))
         if 'message' in st.session_state and st.session_state['message'] != '':
             st.success(st.session_state['message'])
         with st.form("Cadastro de excessos"):
