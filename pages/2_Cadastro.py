@@ -54,7 +54,7 @@ if st.session_state['authentication_status'] == True:
             with f1:
                 quant_item = st.number_input('Quantidade', min_value=0, key='qti')
             with f2:
-                preco_unit = st.number_input('Valor unitário', min_value=0, key='vli')
+                preco_unit = st.number_input('Valor unitário', min_value=0, format='%.2f' key='vli')
 
 
             enviado = st.form_submit_button("Cadastrar", on_click=clear_form)
@@ -73,7 +73,7 @@ if st.session_state['authentication_status'] == True:
                         'preco_unitario':preco_unit,
                         'quantidade':quant_item,
                         'situacao':'cadastrado',
-                        'uf':'unidade',
+                        'uf':uf_item,
                         'origem':st.session_state['username']}
                     )
                     nav_page('Cadastro')
