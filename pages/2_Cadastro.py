@@ -59,7 +59,7 @@ if st.session_state['authentication_status'] == True:
                 preco_unit = st.number_input('Valor unitário', min_value=0.00,step = 1.00, format='%.2f', key='vli')
 
 
-            enviado = st.form_submit_button("Cadastrar", on_click=clear_form)
+            enviado = st.form_submit_button("Cadastrar")
             if enviado:
                 if pi_item == '' or nome_item == '' or desc_item == '' or lvad_item == '' or quant_item == '' or preco_unit == '':
                     st.warning('Por favor, preencha todos os campos')
@@ -78,4 +78,5 @@ if st.session_state['authentication_status'] == True:
                         'uf':uf_item,
                         'origem':st.session_state['username']}
                     )
+                    clear_form()
                     nav_page('Cadastro')
