@@ -46,5 +46,5 @@ def main():
             #w.card(w.editor.get_content("Card content"))
             w.data_grid(w.editor.get_content("Itens cadastrados"))
 
-
+        st.write(w.data_grid)
 main()
