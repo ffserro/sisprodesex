@@ -72,6 +72,7 @@ else:
         st.write(ids)
         for i in ids:
 	        base.append(list(db.child('itens').order_by_child('id').equal_to(i).get().val().keys())[0])
+        st.write(base)
         for i in base:
             db.child('itens').child(i).update({'situacao':'Em trânsito'})
         nav_page('Envio')
