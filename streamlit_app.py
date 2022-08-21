@@ -11,9 +11,8 @@ db = firebase.database()
 st.session_state['authentication_status'] = False
 
 login_form = st.form('Login')
-login_form.markdown("<h1 style='text-align: center; color: grey;'>Big headline</h1>", unsafe_allow_html=True)
-login_form.markdown("<h2 style='text-align: center; color: black;'>Smaller headline in black </h2>", unsafe_allow_html=True)
-login_form.subheader('SISPRODESEX')
+login_form.markdown("<h1 style='text-align: center;'>SISPRODESEX</h1>", unsafe_allow_html=True)
+login_form.markdown("<img src='https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Imagens%2Fdepsmrj.png?alt=media&token=bc3a82e2-776e-4786-8968-bd1e58fe5a60' alt='DepSMRJ' width='500' height='600'>", unsafe_allow_html=True)
 login_form.image('https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Imagens%2Fdepsmrj.png?alt=media&token=bc3a82e2-776e-4786-8968-bd1e58fe5a60', width=300)
 email = login_form.text_input('Email')
 st.session_state['email'] = email
