@@ -15,19 +15,15 @@ st.set_page_config(layout="wide")
 if st.session_state['authentication_status'] != True or 'authentication_status' not in st.session_state:
     nav_page('')
 else:
-    try:
-        query = db.child('itens').order_by_child('origem').equal_to(st.session_state['origem']).get().val().values()
-    except:
-        st.title('Você ainda não cadastrou itens para destinação...')
-        st.write('Por favor cadastre itens na aba "Cadastro" para que possa vê-los aqui.')
-        st.stop()
+    
+    query = db.child('itens').get().val().values()
 
     df_itens = pd.DataFrame()
     for i in query:
         df_itens = pd.concat([df_itens, pd.DataFrame({x:[i[x]] for x in i})],ignore_index=True)
-    df_itens = df_itens
-    print(df_itens)
-    df = df_itens
+    
+    df = df_itens[df_itens.origem == st.session_state['origem']]
+    
     #Infer basic colDefs from dataframe types
     gb = GridOptionsBuilder.from_dataframe(df[['data_cadastro', 'data_envio', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_recebimento']])
 
