@@ -23,7 +23,7 @@ else:
         df_itens = pd.concat([df_itens, pd.DataFrame({x:[i[x]] for x in i})],ignore_index=True)
     
     df = df_itens[df_itens.origem == st.session_state['origem']]
-    
+
     #Infer basic colDefs from dataframe types
     gb = GridOptionsBuilder.from_dataframe(df[['data_cadastro', 'data_envio', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_recebimento']])
 
@@ -55,6 +55,7 @@ else:
     gb.configure_grid_options(domLayout='normal')
     gridOptions = gb.build()
 
+    st.title('Consulta de itens cadastrados')
     grid_response = AgGrid(
         df, 
         gridOptions=gridOptions,
