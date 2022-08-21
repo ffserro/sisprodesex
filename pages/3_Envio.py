@@ -20,6 +20,7 @@ else:
     print(df_itens)
 
     df = df_itens[df_itens.situacao == 'cadastrado']
+    df = df[df.origem == st.session_state['origem']]
 
     #Infer basic colDefs from dataframe types
     gb = GridOptionsBuilder.from_dataframe(df[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem']])
