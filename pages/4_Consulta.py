@@ -25,7 +25,7 @@ else:
     print(df_itens)
 
     df = df_itens
-    df['data_ulitma'] = max(df[[i for i in df if i.startswith('data')]])
+    df['data_ultima'] = max(df[[i for i in df if i.startswith('data')]])
 
     #Infer basic colDefs from dataframe types
     gb = GridOptionsBuilder.from_dataframe(df[['data_ultima', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem']])
