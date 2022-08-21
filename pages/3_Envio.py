@@ -70,7 +70,8 @@ else:
     if enviar:
         ids = [i['rowIndex'] for i in grid_response['selected_rows']]
         for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
-            db.child('itens').child(i).update({'data_envio':datetime.now().strftime("%d/%m/%Y"),'situacao':'Em trânsito'})
+            db.child('itens').child(i).update({'situacao':'Em trânsito'})
+            db.child('itens').child(i).update({'data_envio':datetime.now().strftime("%d/%m/%Y")})
         nav_page('Envio')
     
     df_final = grid_response['data']
