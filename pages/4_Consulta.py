@@ -24,6 +24,11 @@ else:
     
     df = df_itens[df_itens.origem == st.session_state['origem']]
 
+    if len(df) == 0:
+        st.title('Parece que você ainda não cadastrou nenhum item em excesso para destinação...')
+        st.write('Por favor, se dirija a aba "Cadastro" para inserir novos itens.')
+        st.stop()
+
     #Infer basic colDefs from dataframe types
     gb = GridOptionsBuilder.from_dataframe(df[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_envio', 'data_recebimento']])
 

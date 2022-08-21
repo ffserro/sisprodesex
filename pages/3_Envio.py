@@ -22,6 +22,11 @@ else:
     df = df_itens[df_itens.situacao == 'cadastrado']
     df = df[df.origem == st.session_state['origem']]
 
+    if len(df) == 0:
+        st.title('Parece que não existem itens aguardando para serem enviados ao DepSMRJ...')
+        st.write('Por favor, se dirija a aba "Cadastro" para inserir novos itens, ou acompanhe o andamento dos itens enviados na aba "Consulta".')
+        st.stop()
+
     #Infer basic colDefs from dataframe types
     gb = GridOptionsBuilder.from_dataframe(df[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem']])
 
