@@ -5,7 +5,7 @@ import pyrebase
 
 st.set_page_config(page_title='SISPRODESEX', page_icon=None, layout="centered", initial_sidebar_state="collapsed", menu_items=None)
 
-firebase = pyrebase.initialize_app(config)
+firebase = pyrebase.initialize_app(st.secrets.CONFIG_KEY)
 auth = firebase.auth()
 db = firebase.database()
 
