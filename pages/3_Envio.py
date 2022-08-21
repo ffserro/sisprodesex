@@ -73,7 +73,7 @@ else:
         for i in ids:
 	        base.append(list(db.child('itens').order_by_child('id').equal_to(i).get().val().keys())[0])
         for i in base:
-            db.child('itens').child(i).update('situacao':'Em trânsito')
+            db.child('itens').child(i).update({'situacao':'Em trânsito'})
         nav_page('Envio')
     df_final = grid_response['data']
     selected = grid_response['selected_rows']
