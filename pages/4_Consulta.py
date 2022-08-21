@@ -18,7 +18,8 @@ else:
     try:
         query = db.child('itens').order_by_child('origem').equal_to(st.session_state['origem']).get().val().values()
     except:
-        st.write('Você ainda não cadastrou itens para destinação...')
+        st.title('Você ainda não cadastrou itens para destinação...')
+        st.write('Por favor cadastre itens na aba "Cadastro" para que possa vê-los aqui.')
         st.stop()
 
     df_itens = pd.DataFrame()
