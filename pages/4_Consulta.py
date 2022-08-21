@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_app import db, auth
+from Logout import db, auth
 from distutils import errors
 from distutils.log import error
 import streamlit as st

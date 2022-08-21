@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_app import db, auth
+from Logout import db, auth
 from utilidades import nav_page
 import streamlit as st
 import pandas as pd 
