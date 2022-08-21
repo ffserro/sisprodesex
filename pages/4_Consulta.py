@@ -21,7 +21,7 @@ else:
     df_itens = pd.DataFrame()
     for i in query:
         df_itens = pd.concat([df_itens, pd.DataFrame({x:[i[x]] for x in i})],ignore_index=True)
-    df_itens = df_itens.set_index('id')
+    df_itens = df_itens
     print(df_itens)
     df = df_itens
     #Infer basic colDefs from dataframe types
