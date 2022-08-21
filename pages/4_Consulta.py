@@ -23,18 +23,17 @@ else:
         df_itens = pd.concat([df_itens, pd.DataFrame({x:[i[x]] for x in i})],ignore_index=True)
     df_itens = df_itens.set_index('id')
     print(df_itens)
-
     df = df_itens
-    df['data_ultima'] = (df['data_recebimento'] if not df['data_recebimento'].isnull() else df['data_envio'] if not df['data_envio'].isnull() else df['data_cadastro'])
-
     #Infer basic colDefs from dataframe types
-    gb = GridOptionsBuilder.from_dataframe(df[['data_ultima', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem']])
+    gb = GridOptionsBuilder.from_dataframe(df[['data_cadastro', 'data_envio', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_recebimento']])
 
     #customize gridOptions
     gb.configure_default_column(maintainColumnOrder=True, groupable=True, value=True, enableRowGroup=True, aggFunc='sum', editable=False)
     gb.configure_auto_height(True)
     gb.configure_pagination()
-    gb.configure_column("data_ultima", 'Data', type=["dateColumnFilter","customDateTimeFormat"], custom_format_string='dd-MM-yyyy', pivot=True)
+    gb.configure_column("data_cadastro", 'Data', type=["dateColumnFilter","customDateTimeFormat"], custom_format_string='dd-MM-yyyy', pivot=True)
+    gb.configure_column("data_envio", 'Data', type=["dateColumnFilter","customDateTimeFormat"], custom_format_string='dd-MM-yyyy', pivot=True)
+    gb.configure_column("data_recebimento", 'Data', type=["dateColumnFilter","customDateTimeFormat"], custom_format_string='dd-MM-yyyy', pivot=True)
     gb.configure_column("pi", 'PI')
     gb.configure_column("nome", 'Nome do item')
     gb.configure_column("descricao",'Descrição')
