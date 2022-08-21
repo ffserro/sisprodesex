@@ -80,7 +80,7 @@ else:
                         'nome':nome_item,
                         'descricao':desc_item,
                         'lvad':lvad_item,
-                        'data_envio':datetime.now().strftime("%d/%m/%Y"),
+                        'data_cadastro':datetime.now().strftime("%d/%m/%Y"),
                         'preco_unitario':preco_unit,
                         'quantidade':quant_item,
                         'situacao':'cadastrado',

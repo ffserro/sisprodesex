@@ -4,6 +4,7 @@ from utilidades import nav_page
 import streamlit as st
 import pandas as pd 
 from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
+from datetime import datetime
 st.set_page_config(layout="wide")
 
 if st.session_state['authentication_status'] != True or 'authentication_status' not in st.session_state:
@@ -69,7 +70,7 @@ else:
     if enviar:
         ids = [i['rowIndex'] for i in grid_response['selected_rows']]
         for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
-            db.child('itens').child(i).update({'situacao':'Em trânsito'})
+            db.child('itens').child(i).update({'data_envio':datetime.now().strftime("%d/%m/%Y"),'situacao':'Em trânsito'})
         nav_page('Envio')
     
     df_final = grid_response['data']
