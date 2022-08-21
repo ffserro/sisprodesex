@@ -12,7 +12,7 @@ st.session_state['authentication_status'] = False
 
 login_form = st.form('Login')
 login_form.subheader('SISPRODESEX')
-login_form.image('https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Imagens%2Fdepsmrj.png?alt=media&token=bc3a82e2-776e-4786-8968-bd1e58fe5a60', width='20%')
+login_form.image('https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Imagens%2Fdepsmrj.png?alt=media&token=bc3a82e2-776e-4786-8968-bd1e58fe5a60', width=20)
 email = login_form.text_input('Email')
 st.session_state['email'] = email
 password = login_form.text_input('Senha', type='password')
