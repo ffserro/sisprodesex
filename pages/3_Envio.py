@@ -68,6 +68,7 @@ else:
 
     if enviar:
         ids = [i['rowIndex'] for i in grid_response['selected_rows']]
+        st.write(ids)
         for i in ids:
             db.child('itens').child(list(db.child('itens').order_by_child('id').equal_to(i).get().val().keys())[0]).update({'situacao':'Em trânsito'})
         nav_page('Envio')
