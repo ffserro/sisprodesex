@@ -16,7 +16,7 @@ if st.session_state['authentication_status'] != True or 'authentication_status' 
     nav_page('')
 else:
 
-    query = db.child('itens').order_by_child('situacao').equal_to('cadastrado').get().val().values()
+    query = db.child('itens').order_by_child('origem').equal_to(st.session_state['origem']).get().val().values()
 
     df_itens = pd.DataFrame()
     for i in query:
