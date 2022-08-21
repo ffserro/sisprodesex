@@ -55,7 +55,7 @@ else:
     gb.configure_grid_options(domLayout='normal')
     gridOptions = gb.build()
 
-    st.title('Consulta de itens cadastrados')
+    st.title('Consulta de itens em excesso')
     grid_response = AgGrid(
         df, 
         gridOptions=gridOptions,
