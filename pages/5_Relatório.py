@@ -85,7 +85,7 @@ else:
         ]
 
         with mui.Box(sx={"height": 500}):
-            nivo.Radar(
+            nivo.Pie(
                 data=DATA,
                 keys=[ "chardonay", "carmenere", "syrah" ],
                 indexBy="taste",
