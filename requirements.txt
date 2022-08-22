@@ -4,6 +4,7 @@ PyJWT==1.7.1
 streamlit-elements
 streamlit-aggrid
 pyxlsb
+xlsxwriter
 
 # Streamlit components
 streamlit-ace
