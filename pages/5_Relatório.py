@@ -37,6 +37,23 @@ else:
 
     st.title('Emitir Relatório')
 
+    kpi1, kpi2, kpi3 = st.columns(3)
+
+    kpi1.metric(
+        label="Quantidade de itens cadastrados",
+        value=len(df_itens)
+    )
+
+    kpi2.metric(
+        label="Quantidade de itens recebidos pelo DepSMRJ",
+        value=len(df_itens[df_itens.data_recebimento != ''])
+    )
+
+    kpi3.metric(
+        label="Total de Excessos Destinados",
+        value=sum(df_itens.preco_unitario * df_itens.quantidade)
+    )
+
     st.dataframe(df_itens.set_index('id'))
 
     df_xlsx = to_excel(df_itens[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_envio', 'data_recebimento']])
