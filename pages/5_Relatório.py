@@ -13,5 +13,4 @@ st.title('Emitir Relatório')
 
 st.dataframe(df_itens)
 
-with f as df_itens.to_excel():
-    st.download_button('Baixar relatório', f, f'Relatorio{datetime.now().year}{datetime.now().month}{datetime.now().day}.xls')
+st.download_button('Baixar relatório', df_itens.to_excel(), f'Relatorio{datetime.now().year}{datetime.now().month}{datetime.now().day}.xls')
