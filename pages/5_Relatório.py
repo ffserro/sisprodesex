@@ -59,7 +59,7 @@ else:
     )
 
     kpi2.metric(
-        label="Quantidade de itens recebidos pelo DepSMRJ",
+        label="Recebidos pelo DepSMRJ",
         value=len(df_itens[df_itens.data_recebimento != ''])
     )
 
