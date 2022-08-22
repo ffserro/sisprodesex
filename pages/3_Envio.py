@@ -22,7 +22,7 @@ else:
     #df_itens = df_itens.set_index('id')
     print(df_itens)
 
-    df = df_itens[df_itens.situacao == 'cadastrado']
+    df = df_itens[df_itens.situacao == 'Cadastrado']
     df = df[df.origem == st.session_state['origem']]
 
     if len(df) == 0:

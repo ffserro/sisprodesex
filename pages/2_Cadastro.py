@@ -88,7 +88,7 @@ else:
                         'data_recebimento':'',
                         'preco_unitario':preco_unit,
                         'quantidade':quant_item,
-                        'situacao':'cadastrado',
+                        'situacao':'Cadastrado',
                         'uf':uf_item,
                         'origem':st.session_state['username']}
                     )
