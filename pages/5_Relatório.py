@@ -40,6 +40,4 @@ else:
     st.dataframe(df_itens.set_index('id'))
 
     df_xlsx = to_excel(df_itens[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_envio', 'data_recebimento']])
-    st.download_button(label='Baixar relatório',
-                                    data=df_xlsx ,
-                                    file_name= f'Relatorio{datetime.now().year}{datetime.now().month}{datetime.now().day}.xlsx')
+    st.download_button(label='Baixar relatório', data=df_xlsx , file_name= f'Relatorio{datetime.now().year}{datetime.now().month}{datetime.now().day}.xlsx')
