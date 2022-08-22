@@ -1,7 +1,7 @@
 import streamlit as st
 from Logout import db, auth
 import pandas as pd
-from streamlit_elements import elements, mui,
+from streamlit_elements import elements, mui
 from io import BytesIO
 from pyxlsb import open_workbook as open_xlsb
 from datetime import datetime
