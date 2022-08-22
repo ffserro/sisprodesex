@@ -12,7 +12,8 @@ if st.session_state['authentication_status'] != True or 'authentication_status' 
 elif st.session_state['origem'] == 'admin':
     nav_page('Cadastro')
 else:
-
+    st.sidebar.title('Envio')
+    st.sidebar.write('Esta página se destina à confirmação do envio ao DepSMRJ dos itens previamente cadastrados.')
     query = db.child('itens').get().val().values()
 
     df_itens = pd.DataFrame()
