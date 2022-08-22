@@ -23,6 +23,9 @@ else:
     st.write('''
     O propósito maior deste sistema ora apresentado é tornar mais eficientes a identificação e o controle dos itens de sobressalentes classificados como excesso, desde a sua origem nos diversos Órgãos de Distribuição localizados em diferentes regiões do país, até sua posterior distribuição pelo Depósito de Sobressalentes da Marinha no Rio de Janeiro.
     ''')
+    st.write('''
+    Esperamos com esse trabalho contribuir com a eficiência do SAbM e também caminhar no sentido de consolidar a cultura Data-driven no contexto administrativo da Marinha do Brasil.
+    ''')
 
 
 
