@@ -28,14 +28,17 @@ else:
     Esperamos com esse trabalho contribuir com a eficiência do SAbM e também caminhar no sentido de consolidar a cultura Data-driven no contexto administrativo da Marinha do Brasil.
     ''')
     st.write('''Confira abaixo as normas que regem o SAbM e as sugestões formuladas pelo grupo:''')
-    f1, f2 = st.columns(2)
+    f1, f2, f3, f4 = st.columns(4)
     with f1:
+        st.write('')
+    with f2:
         if st.button('SGM-401'):
             webbrowser.open_new_tab('https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Documentos%2FSGM-401.pdf?alt=media&token=55abeb30-8758-4db2-8052-bcfab7cbde00')
-    with f2:
+    with f3:
         if st.button('Sugestões do grupo'):
             webbrowser.open_new_tab('https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Documentos%2FNorma%20Grupo%20H.docx.pdf?alt=media&token=e61f5f01-d2d9-4527-bb4e-07540ce22348')
-
+    with f4:
+        st.write('')
 
 
 
