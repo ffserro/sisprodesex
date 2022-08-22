@@ -86,7 +86,7 @@ else:
 
         with mui.Box(sx={"height": 500}):
             nivo.Pie(
-                    data=DATA, width=300, height=300,
+                    data=df_itens, id = 'id', value='quantidade', width=300, height=300,
                     #keys=[ "chardonay", "carmenere", "syrah" ],
                     #indexBy="taste",
                     #valueFormat=">-.2f",
