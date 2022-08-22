@@ -30,7 +30,7 @@ else:
 
     st.title('Emitir Relatório')
 
-    st.dataframe(df_itens)
+    st.dataframe(df_itens.set_index('id'))
 
     df_xlsx = to_excel(df[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_envio', 'data_recebimento'])
     st.download_button(label='Baixar relatório',
