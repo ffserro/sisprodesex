@@ -90,6 +90,6 @@ else:
                         'quantidade':quant_item,
                         'situacao':'Cadastrado',
                         'uf':uf_item,
-                        'origem':st.session_state['username']}
+                        'origem':st.session_state['origem']}
                     )
                     nav_page('Cadastro')
