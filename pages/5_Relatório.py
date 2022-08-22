@@ -69,7 +69,7 @@ else:
         value='R$ {:.2f}'.format(sum(df_itens.preco_unitario * df_itens.quantidade)).replace('.',',')
     )
 
-
+'''
     with elements("nivo_charts"):
 
         # Streamlit Elements includes 45 dataviz components powered by Nivo.
@@ -128,7 +128,7 @@ else:
                     #        }
                     #    }
                     #}
-                )
+                )'''
     st.dataframe(df_itens.set_index('id'))
 
     df_xlsx = to_excel(df_itens[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_envio', 'data_recebimento']])
