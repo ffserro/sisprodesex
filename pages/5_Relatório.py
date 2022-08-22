@@ -1,7 +1,22 @@
 import streamlit as st
 from Logout import db, auth
 import pandas as pd
+from io import BytesIO
+from pyxlsb import open_workbook as open_xlsb
 from datetime import datetime
+
+
+def to_excel(df):
+    output = BytesIO()
+    writer = pd.ExcelWriter(output, engine='xlsxwriter')
+    df.to_excel(writer, index=False, sheet_name='Sheet1')
+    workbook = writer.book
+    worksheet = writer.sheets['Sheet1']
+    format1 = workbook.add_format({'num_format': '0.00'}) 
+    worksheet.set_column('A:A', None, format1)  
+    writer.save()
+    processed_data = output.getvalue()
+    return processed_data
 
 query = db.child('itens').get().val().values()
 
@@ -13,4 +28,7 @@ st.title('Emitir Relatório')
 
 st.dataframe(df_itens)
 
-st.download_button('Baixar relatório', df_itens.to_excel(f'Relatorio{datetime.now().year}{datetime.now().month}{datetime.now().day}), f'Relatorio{datetime.now().year}{datetime.now().month}{datetime.now().day}.xls')
+df_xlsx = to_excel(df_itens)
+st.download_button(label='Baixar relatório',
+                                data=df_xlsx ,
+                                file_name= f'Relatorio{datetime.now().year}{datetime.now().month}{datetime.now().day}.xlsx')
