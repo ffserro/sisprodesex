@@ -10,7 +10,7 @@ if st.session_state['authentication_status'] != True or 'authentication_status' 
 else:
     st.markdown("# Seja bem vindo ao PRODESEX")
     st.sidebar.markdown("# Página principal")
-    st.sidebar.write('Para navegar pelas funcionalidades do sistema, por favor clique no link para ser redirecionado para umas das abas que são mostradas acima.')
+    st.sidebar.write('Para navegar pelas funcionalidades do sistema, por favor clique em um dos links mostrados acima para ser redirecionado para umas das abas.')
 
     st.write('''
     O Sistema de Apoio ao Programa de Destinação de Excessos é uma sugestão de melhoria para os processos de intendência do Grupo H do CApA-2022, composto pelos:
@@ -19,6 +19,9 @@ else:
     - 1T(IM) Matheus Bispo
     - 1T(IM) Sêrro
     - 1T(QC-IM) Ludmilla
+    ''')
+    st.write('''
+    O propósito maior deste sistema ora apresentado é tornar mais eficientes a identificação e o controle dos itens de sobressalentes classificados como excesso, desde a sua origem nos diversos Órgãos de Distribuição localizados em diferentes regiões do país, até sua posterior distribuição pelo Depósito de Sobressalentes da Marinha no Rio de Janeiro.
     ''')
 
 
