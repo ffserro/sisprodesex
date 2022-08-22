@@ -1,5 +1,6 @@
 import streamlit as st
 from Logout import db, auth
+import pandas as pd
 
 query = db.child('itens').get().val().values()
 
