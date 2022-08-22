@@ -7,7 +7,7 @@ st.set_page_config(page_title='SISPRODESEX', page_icon='https://www.marinha.mil.
 firebase = pyrebase.initialize_app(st.secrets.CONFIG_KEY)
 auth = firebase.auth()
 db = firebase.database()
-
+st.session_state = {}
 st.session_state['authentication_status'] = False
 
 login_form = st.form('Login')
