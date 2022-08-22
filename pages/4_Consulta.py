@@ -17,7 +17,8 @@ if st.session_state['authentication_status'] != True or 'authentication_status' 
 elif st.session_state['origem'] == 'admin':
     nav_page('Cadastro')
 else:
-    
+    st.sidenar.title('Consulta')
+    st.sidebar.write('Esta página se destina à consulta da situação dos itens cadastrados e enviados, bem como ao histórico dos itens próprios já recebidos pelo DepSMRJ.')
     query = db.child('itens').get().val().values()
 
     df_itens = pd.DataFrame()
