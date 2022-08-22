@@ -39,6 +39,20 @@ else:
 
     kpi1, kpi2, kpi3 = st.columns(3)
 
+    st.markdown('''
+    <style>
+    /*center metric label*/
+    [data-testid="stMetricLabel"] > div:nth-child(1) {
+        justify-content: center;
+    }
+
+    /*center metric value*/
+    [data-testid="stMetricValue"] > div:nth-child(1) {
+        justify-content: center;
+    }
+    </style>
+    ''', unsafe_allow_html=True)
+
     kpi1.metric(
         label="Quantidade de itens cadastrados",
         value=len(df_itens)
