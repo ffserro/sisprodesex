@@ -51,7 +51,7 @@ else:
 
     kpi3.metric(
         label="Total de Excessos Destinados",
-        value=f'R$ {sum(df_itens.preco_unitario * df_itens.quantidade)}'
+        value='R$ {:.2f}'.format(sum(df_itens.preco_unitario * df_itens.quantidade))
     )
 
     st.dataframe(df_itens.set_index('id'))
