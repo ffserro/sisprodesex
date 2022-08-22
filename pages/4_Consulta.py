@@ -61,6 +61,8 @@ else:
     gridOptions = gb.build()
 
     st.title('Consulta de itens em excesso')
+    
+    @st.cache
     grid_response = AgGrid(
         df, 
         gridOptions=gridOptions,

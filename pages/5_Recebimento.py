@@ -61,7 +61,8 @@ else:
 
 
     st.write('# Recebimento dos itens enviados')
-
+    
+    @st.cache
     grid_response = AgGrid(
         df, 
         gridOptions=gridOptions,

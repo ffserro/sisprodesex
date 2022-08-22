@@ -62,7 +62,8 @@ else:
 
 
     st.write('# Envio dos itens cadastrados')
-
+    
+    @st.cache
     grid_response = AgGrid(
         df, 
         gridOptions=gridOptions,
