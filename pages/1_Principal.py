@@ -40,6 +40,7 @@ else:
     with f4:
         if st.button('Sugestões do grupo'):
             webbrowser.open_new_tab('https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Documentos%2FNorma%20Grupo%20H.docx.pdf?alt=media&token=e61f5f01-d2d9-4527-bb4e-07540ce22348')    with f5:
+    with f5:    
         st.write('')
 
 
