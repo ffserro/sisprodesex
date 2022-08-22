@@ -10,6 +10,7 @@ else:
     if st.session_state['username'] == 'admin':
         st.markdown("# Cadastro de usuários")
         st.sidebar.markdown("# Cadastro")
+        st.sidebar.write('Esta página é exclusiva do administrador do sistema para inclusão de usuários')
         if 'message' in st.session_state and st.session_state['message'] != '':
             st.success(st.session_state['message'])
             st.session_state['message'] = ''
@@ -46,6 +47,7 @@ else:
     else:
         st.markdown("# Cadastro de itens")
         st.sidebar.markdown("# Cadastro")
+        st.sidebar.write('Esta página se destina ao cadastro de itens que foram identificados como excesso nos Órgãos de Distribuição, já tendo sido submetidos ao processo de Vistoria e Avaliação.')
         if 'message' in st.session_state and st.session_state['message'] != '':
             st.success(st.session_state['message'])
         with st.form("Cadastro de excessos", clear_on_submit=True):
