@@ -9,6 +9,8 @@ st.set_page_config(page_title='SISPRODESEX', page_icon='https://www.marinha.mil.
 
 if st.session_state['authentication_status'] != True or 'authentication_status' not in st.session_state:
     nav_page('')
+elif st.session_state['origem'] == 'admin':
+    nav_page('Cadastro')
 else:
 
     query = db.child('itens').get().val().values()
