@@ -10,7 +10,7 @@ else:
     if st.session_state['username'] == 'admin':
         
         st.sidebar.markdown("# Cadastro")
-        st.sidebar.write('Esta página é exclusiva do administrador do sistema para inclusão de usuários')
+        st.sidebar.write('Esta página é exclusiva do administrador do sistema para inclusão e alteração de usuários')
         servico = st.sidebar.selectbox('Por favor selecione o serviço desejado:',['Cadastro', 'Alteração de dados'])
 
         if 'message' in st.session_state and st.session_state['message'] != '':
