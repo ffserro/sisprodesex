@@ -31,7 +31,7 @@ else:
                 repetir_nova_senha = st.text_input('Repita a senha', type='password', key='nvs')
 
 
-                enviado = st.form_submit_button("Enviar")
+                enviado = st.form_submit_button("Cadastrar")
                 if enviado:
                     if '@' not in novo_email:
                         st.warning('Insira um email válido')
@@ -52,8 +52,10 @@ else:
         def altera_dados():
             st.markdown('# Alteração de dados')
             with st.form('Alteração', clear_on_submit=True):
-                antigo = st.selectbox('Qual dado você deseja alterar?', ['Usuário', 'Email', 'OM de origem'])
-                
+                antigo = st.selectbox('Qual dado você deseja alterar?', ['-','Usuário', 'Email', 'OM de origem'])
+
+                enviado = st.form_submit_button('Alterar')
+
 
         if servico == 'Cadastro de usuário':
             cadastro()
