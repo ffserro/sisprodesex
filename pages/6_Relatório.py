@@ -70,6 +70,7 @@ else:
     )
 
     df_itens['ano'] = df_itens.data_cadastro.str[-4:]
+    st.write(df_itens.ano)
 
     c1, c2 = st.columns(2)
 
