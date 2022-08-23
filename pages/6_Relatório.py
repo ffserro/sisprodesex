@@ -75,10 +75,10 @@ else:
     c1, c2 = st.columns(2)
 
     with c1:
-        filtro = st.selectbox('Selecione um filtro:', ['','Origem', 'Ano', 'Situação'])
-        filtro = {'':'','Origem':'origem', 'Ano':'ano', 'Situação':'situacao'}[filtro]
+        filtro = st.selectbox('Selecione um filtro:', ['-','Origem', 'Ano', 'Situação'])
+        filtro = {'-':'-','Origem':'origem', 'Ano':'ano', 'Situação':'situacao'}[filtro]
     with c2:
-        valor = st.selectbox('Igual a:', (df_itens[filtro].unique() if filtro != '' else '-'))
+        valor = st.selectbox('Igual a:', (df_itens[filtro].unique() if filtro != '-' else '-'))
 
     st.dataframe(df_itens.set_index('id')[df_itens[filtro] == valor].drop(columns=['ano']))
 
