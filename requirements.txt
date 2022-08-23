@@ -5,6 +5,7 @@ streamlit-elements
 streamlit-aggrid
 pyxlsb
 xlsxwriter
+link-button
 
 # Streamlit components
 streamlit-ace
