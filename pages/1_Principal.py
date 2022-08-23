@@ -30,8 +30,15 @@ else:
     st.write('''Confira abaixo as normas que regem o SAbM e as sugestões formuladas pelo grupo:''')
     f1, f2, f3 = st.columns(3)
     with f1:
-        if st.button('SGM-201'):
-            st.markdown('<a href="https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Documentos%2FSGM-401.pdf?alt=media&token=55abeb30-8758-4db2-8052-bcfab7cbde00" ></a>', unsafe_allow_html=True)
+        st.write(f'''
+            <a target="_self" href="https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Documentos%2FSGM-401.pdf?alt=media&token=55abeb30-8758-4db2-8052-bcfab7cbde00">
+                <button>
+                    Please login via Google
+                </button>
+            </a>
+            ''',
+            unsafe_allow_html=True
+        )
     with f2:
         if st.button('ABASTCMARINST'):
             webbrowser.open_new_tab('https://google.com')
