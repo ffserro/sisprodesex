@@ -52,7 +52,11 @@ else:
         def altera_dados():
             st.markdown('# Alteração de dados')
             with st.form('Alteração', clear_on_submit=True):
-                antigo = st.selectbox('Qual dado você deseja alterar?', ['-','Usuário', 'Email', 'OM de origem'])
+                campo = st.selectbox('Qual dado você deseja alterar?', ['-','Usuário', 'Email', 'OM de origem'])
+
+                if campo != '-':
+                    antigo = st.text_input(f'Qual é o atual {campo.lower()}?')
+                    
 
                 enviado = st.form_submit_button('Alterar')
 
