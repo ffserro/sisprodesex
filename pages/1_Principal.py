@@ -41,7 +41,8 @@ else:
             unsafe_allow_html=True
         )
     with f2:
-        link_button('ABASTCMARINST', 'https://google.com')
+        #link_button('ABASTCMARINST', 'https://google.com')
+        pass
         
     with f3:
         if st.button('Sugestões do grupo'):
