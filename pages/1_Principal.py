@@ -33,7 +33,7 @@ else:
         st.write(f'''
             <a target="_self" href="https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Documentos%2FSGM-401.pdf?alt=media&token=55abeb30-8758-4db2-8052-bcfab7cbde00">
                 <button>
-                    Please login via Google
+                    SGM-201
                 </button>
             </a>
             ''',
