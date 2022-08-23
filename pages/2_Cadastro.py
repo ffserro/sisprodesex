@@ -50,7 +50,10 @@ else:
                         nav_page('Cadastro')
 
         def altera_dados():
-            pass
+            st.markdown('# Alteração de dados')
+            with st.form('Alteração', clear_on_submit=True):
+                antigo = st.selectbox('Qual dado você deseja alterar?', ['Usuário', 'Email', 'OM de origem'])
+                
 
         if servico == 'Cadastro de usuário':
             cadastro()
