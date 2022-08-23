@@ -40,14 +40,28 @@ else:
             unsafe_allow_html=True
         )
     with f2:
-        if st.button('ABASTCMARINST'):
-            st.write('<meta http-equiv="refresh" content="0;url=https://google.com">', unsafe_allow_html=True)
-        
+        st.write(f'''
+            <a target="_blank" 
+            href="https://google.com">
+                <button>
+                    ABASTCMARINST
+                </button>
+            </a>
+            ''',
+            unsafe_allow_html=True
+        )
     with f3:
-        if st.button('Sugestões do grupo'):
-            pass
-            #webbrowser.open_new_tab('https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Documentos%2FNorma%20Grupo%20H.docx.pdf?alt=media&token=e61f5f01-d2d9-4527-bb4e-07540ce22348')
-
+        st.write(f'''
+            <a target="_blank" 
+            href="https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Documentos%2FNorma%20Grupo%20H.docx.pdf?alt=media&token=e61f5f01-d2d9-4527-bb4e-07540ce22348">
+                <button>
+                    Sugestões do grupo
+                </button>
+            </a>
+            ''',
+            unsafe_allow_html=True
+        )
+        
 
 
 
