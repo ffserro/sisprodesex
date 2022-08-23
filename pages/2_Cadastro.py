@@ -50,6 +50,7 @@ else:
         st.sidebar.write('Esta página se destina ao cadastro de itens que foram identificados como excesso nos Órgãos de Distribuição, já tendo sido submetidos ao processo de Vistoria e Avaliação.')
         if 'message' in st.session_state and st.session_state['message'] != '':
             st.success(st.session_state['message'])
+            st.session_state['message'] = ''
         with st.form("Cadastro de excessos", clear_on_submit=True):
             st.write("Novo item")
             try:
