@@ -40,8 +40,8 @@ else:
             unsafe_allow_html=True
         )
     with f2:
-        #link_button('ABASTCMARINST', 'https://google.com')
-        pass
+        if st.button('ABASTCMARINST'):
+            st.write('<meta http-equiv="refresh" content="0;url=https://google.com">', unsafe_allow_html=True)
         
     with f3:
         if st.button('Sugestões do grupo'):
