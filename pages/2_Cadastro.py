@@ -54,9 +54,8 @@ else:
             with st.form('Alteração', clear_on_submit=True):
                 campo = st.selectbox('Qual dado você deseja alterar?', ['-','Usuário', 'Email', 'OM de origem'])
 
-                if campo != '-':
-                    antigo = st.text_input(f'Qual é o atual {campo.lower()}?')
-                    
+                antigo = (st.text_input(f'Qual é o atual {campo.lower()}?') if campo!='-' else '-')
+
 
                 enviado = st.form_submit_button('Alterar')
 
