@@ -3,7 +3,6 @@ from Logout import auth
 from utilidades import nav_page
 import pandas as pd
 import numpy as np
-from link_button import link_button
 st.set_page_config(page_title='SISPRODESEX', page_icon='https://www.marinha.mil.br/sites/default/files/favicon-logomarca-mb.ico', layout="centered", initial_sidebar_state="expanded", menu_items=None)
 
 if st.session_state['authentication_status'] != True or 'authentication_status' not in st.session_state:
