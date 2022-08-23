@@ -43,7 +43,7 @@ else:
         st.write(f'''
             <a target="_blank" 
             href="https://google.com">
-                <button>
+                <button class='btn btn-primary'>
                     ABASTCMARINST
                 </button>
             </a>
