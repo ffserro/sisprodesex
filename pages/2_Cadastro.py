@@ -52,7 +52,7 @@ else:
         def altera_dados():
             pass
 
-        if servico == 'Cadastro':
+        if servico == 'Cadastro de usuário':
             cadastro()
         elif servico == 'Alteração de dados':
             altera_dados()
