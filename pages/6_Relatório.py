@@ -79,8 +79,13 @@ else:
         filtro = {'-':'-','Origem':'origem', 'Ano':'ano', 'Situação':'situacao'}[filtro]
     with c2:
         valor = st.selectbox('Igual a:', (df_itens[filtro].unique() if filtro != '-' else '-'))
+    if filtro != '-':
+        st.dataframe(df_itens.set_index('id')[df_itens[filtro] == valor].drop(columns=['ano']))
 
-    st.dataframe(df_itens.set_index('id')[df_itens[filtro] == valor].drop(columns=['ano']))
+        df_xlsx = to_excel(df_itens[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_envio', 'data_recebimento']][df_itens[filtro] == valor])
+    else:
+        st.dataframe(df_itens.set_index('id').drop(columns=['ano']))
 
-    df_xlsx = to_excel(df_itens[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_envio', 'data_recebimento']][df_itens[filtro] == valor])
+        df_xlsx = to_excel(df_itens[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_envio', 'data_recebimento']])
+
     st.download_button(label='Baixar relatório', data=df_xlsx , file_name= f'Relatorio{datetime.now().year}{datetime.now().month}{datetime.now().day}.xlsx')
