@@ -52,8 +52,8 @@ else:
 
     gb.configure_side_bar()
 
-    gb.configure_selection('multiple')
-    gb.configure_selection('multiple', use_checkbox=True, groupSelectsChildren=True, groupSelectsFiltered=True)
+    gb.configure_selection('single')
+    
 
     gb.configure_pagination(paginationAutoPageSize=True)
 
