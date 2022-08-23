@@ -76,7 +76,7 @@ else:
 
     with c1:
         filtro = st.selectbox('Selecione um filtro:', ['','Origem', 'Ano', 'Situação'])
-        filtro = {'Origem':'origem', 'Ano':'ano', 'Situação':'situacao'}[filtro]
+        filtro = {'':'','Origem':'origem', 'Ano':'ano', 'Situação':'situacao'}[filtro]
     with c2:
         valor = st.selectbox('Igual a:', (df_itens[filtro].unique() if filtro != '' else '-'))
 
