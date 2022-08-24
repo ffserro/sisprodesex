@@ -117,7 +117,7 @@ else:
                         'situacao':'Cadastrado',
                         'uf':uf_item,
                         'origem':st.session_state['origem'],
-                        'nome_OM':'',
+                        'nome_om':'',
                         'num_leilao':''}
                     )
                     nav_page('Cadastro')
