@@ -257,7 +257,6 @@ else:
 
         enviar = st.button('Pronto para alienação')
 
-
         if enviar:
             ids = [i['id'] for i in grid_response['selected_rows']]
             for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
