@@ -263,7 +263,7 @@ else:
 
         if enviar:
             with st.form('distribuido'):
-                nome_om = text_input('Digite o nome da OM que recebeu o item: ')
+                nome_om = st.text_input('Digite o nome da OM que recebeu o item: ')
                 distribuido = st.form_submit_button('Enviar')
                 if distribuido:
                     ids = [i['id'] for i in grid_response['selected_rows']]
