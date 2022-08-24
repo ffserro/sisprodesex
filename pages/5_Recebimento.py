@@ -314,7 +314,7 @@ else:
             theme='streamlit'    
             )
 
-        enviar = st.button('Leiloado')
+        enviar = st.button('Alienado')
 
         if enviar:
             ids = [i['id'] for i in grid_response['selected_rows']]
