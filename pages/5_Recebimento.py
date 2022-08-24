@@ -264,7 +264,7 @@ else:
             nav_page('Recebimento')
 
     elif modulo == 'Venda':
-        df = df_itens[df_itens.situacao == 'Para venda']
+        df = df_itens[df_itens.situacao == 'Pronto para alienação']
 
         if len(df) == 0:
             st.title('Parece que não existem itens aguardando para serem recebidos pelo DepSMRJ...')
