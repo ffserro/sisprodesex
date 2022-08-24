@@ -14,6 +14,8 @@ elif st.session_state['origem'] != 'DEPSMRJ':
 else:
     st.sidebar.title('Recebimento')
     st.sidebar.write('Esta página se destina à confirmação do recebimento por parte do DepSMRJ dos itens que se encontravam em trânsito.')
+    st.sidebar.selectbox('Selecione a funcionalidade desejada:', ['Recebimento', 'Descaracterização', 'Venda'])
+    
     query = db.child('itens').get().val().values()
 
     df_itens = pd.DataFrame()
