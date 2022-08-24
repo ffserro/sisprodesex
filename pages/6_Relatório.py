@@ -69,6 +69,55 @@ else:
         value='R$ {:.2f}'.format(sum(df_itens.preco_unitario * df_itens.quantidade)).replace('.',',')
     )
 
+    gb = GridOptionsBuilder.from_dataframe(df[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_envio', 'data_recebimento']])
+
+    #customize gridOptions
+    gb.configure_default_column(maintainColumnOrder=True, groupable=True, value=True, enableRowGroup=True, aggFunc='sum', editable=False)
+    gb.configure_auto_height(True)
+    gb.configure_pagination()
+    gb.configure_column("data_cadastro", 'Data Cadastro', type=["dateColumnFilter","customDateTimeFormat"], custom_format_string='dd-MM-yyyy', pivot=True)
+    gb.configure_column("data_envio", 'Data Envio', type=["dateColumnFilter","customDateTimeFormat"], custom_format_string='dd-MM-yyyy', pivot=True)
+    gb.configure_column("data_recebimento", 'Data Recebimento', type=["dateColumnFilter","customDateTimeFormat"], custom_format_string='dd-MM-yyyy', pivot=True)
+    gb.configure_column("pi", 'PI')
+    gb.configure_column("nome", 'Nome do item')
+    gb.configure_column("descricao",'Descrição')
+    gb.configure_column("lvad", 'LVAD')
+    gb.configure_column("preco_unitario", 'Preço Unitário', type=["customCurrencyFormat"], custom_currency_symbol="R$", aggFunc='sum')
+    gb.configure_column("quantidade", 'Quantidade', type=["numericColumn"], aggFunc='max')
+    gb.configure_column("situacao", 'Situação')
+    gb.configure_column("uf", 'UF')
+    gb.configure_column("origem",'Origem')
+
+
+    gb.configure_side_bar()
+
+    gb.configure_selection('single')
+    
+
+    gb.configure_pagination(paginationAutoPageSize=True)
+
+    gb.configure_grid_options(domLayout='normal')
+    gridOptions = gb.build()
+
+    grid_response = AgGrid(
+        df, 
+        gridOptions=gridOptions,
+        fit_columns_on_grid_load = True,
+        data_return_mode='FILTERED', 
+        update_mode='GRID_CHANGED',
+        allow_unsafe_jscode=True, #Set it to True to allow jsfunction to be injected
+        theme='streamlit'    
+        )
+
+
+
+
+
+
+
+
+
+    '''
     df_itens['ano'] = df_itens.data_cadastro.str[-4:]
 
     c1, c2 = st.columns(2)
@@ -86,5 +135,5 @@ else:
         st.dataframe(df_itens.set_index('id').drop(columns=['ano']))
 
         df_xlsx = to_excel(df_itens[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_envio', 'data_recebimento']])
-
+    '''
     st.download_button(label='Baixar relatório', data=df_xlsx , file_name= f'Relatorio{datetime.now().year}{datetime.now().month}{datetime.now().day}.xlsx')
