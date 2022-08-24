@@ -314,11 +314,24 @@ else:
             theme='streamlit'    
             )
 
-        enviar = st.button('Alienado')
+        if len(grid_response['selected_rows']) > 0:
 
-        if enviar:
-            ids = [i['id'] for i in grid_response['selected_rows']]
-            for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
-                db.child('itens').child(i).update({'situacao':'Alienado', 'data_recebimento':datetime.now().strftime("%d/%m/%Y")})
-            nav_page('Recebimento')
+            tipo_alienacao = st.selectbox('Selecione o tipo de alienação',['Distribuição OM', 'Leilão'])
+
+            if tipo_alienacao == 'Distribuição OM':
+                nome_om = st.text_input('Digite o nome da OM:')
+                enviar = st.button('Enviar')
+                if enviar:
+                    ids = [i['id'] for i in grid_response['selected_rows']]
+                    for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
+                        db.child('itens').child(i).update({'nome_om':nome_om,'situacao':'Alienado', 'data_recebimento':datetime.now().strftime("%d/%m/%Y")})
+                nav_page('Recebimento')
+            elif tipo_alienacao == 'Leilão':
+                num_leilao = st.text_input('Insira o número do leilão: ', placeholder='Por favor, digite no formato NUMERO/ANO')
+                enviar = st.button('Enviar')
+                if enviar:
+                    ids = [i['id'] for i in grid_response['selected_rows']]
+                    for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
+                        db.child('itens').child(i).update({'num_leilao':num_leilao,'situacao':'Alienado', 'data_recebimento':datetime.now().strftime("%d/%m/%Y")})
+                nav_page('Recebimento')
         
