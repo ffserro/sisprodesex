@@ -111,6 +111,7 @@ else:
         )
 
 
+    st.write(pd.DataFrame(grid_response['selected_rows'])))
 
 
 
