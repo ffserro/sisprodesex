@@ -101,7 +101,7 @@ else:
     gridOptions = gb.build()
 
     grid_response = AgGrid(
-        df, 
+        df_itens, 
         gridOptions=gridOptions,
         fit_columns_on_grid_load = True,
         data_return_mode='FILTERED', 
