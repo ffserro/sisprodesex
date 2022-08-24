@@ -316,7 +316,7 @@ else:
 
         if len(grid_response['selected_rows']) > 0:
 
-            tipo_alienacao = st.selectbox('Selecione o tipo de alienação',['Distribuição OM', 'Leilão'])
+            tipo_alienacao = st.selectbox('Selecione o tipo de alienação',['-','Distribuição OM', 'Leilão'])
 
             if tipo_alienacao == 'Distribuição OM':
                 nome_om = st.text_input('Digite o nome da OM:')
