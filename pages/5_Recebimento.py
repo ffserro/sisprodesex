@@ -266,12 +266,9 @@ else:
                 nome_om = st.text_input('Digite o nome da OM que recebeu o item: ')
                 distribuido = st.form_submit_button('Enviar')
                 if distribuido:
-                    try:
-                        ids = [i['id'] for i in grid_response['selected_rows']]
-                        for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
-                            db.child('itens').child(i).update({'nome_OM':nome_om,'situacao':'Distribuído para OM', 'data_recebimento':datetime.now().strftime("%d/%m/%Y")})
-                    except Exception as err:
-                        st.write(err)
+                    ids = [i['id'] for i in grid_response['selected_rows']]
+                    for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
+                        db.child('itens').child(i).update({'nome_om':nome_om,'situacao':'Distribuído para OM', 'data_recebimento':datetime.now().strftime("%d/%m/%Y")})
                     nav_page('Recebimento')
         if vender:
             ids = [i['id'] for i in grid_response['selected_rows']]
