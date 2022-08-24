@@ -266,7 +266,7 @@ else:
                 ids = [i['id'] for i in grid_response['selected_rows']]
                 for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
                     db.child('itens').child(i).update({'num_lote':num_lote,'situacao':'Pronto para alienação', 'data_recebimento':datetime.now().strftime("%d/%m/%Y")})
-            nav_page('Recebimento')
+                nav_page('Recebimento')
 
     elif modulo == 'Venda':
         df = df_itens[df_itens.situacao == 'Para venda']
