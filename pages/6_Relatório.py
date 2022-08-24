@@ -106,11 +106,11 @@ else:
         fit_columns_on_grid_load = True,
         data_return_mode='FILTERED', 
         update_mode='GRID_CHANGED',
-        allow_unsafe_jscode=True, #Set it to True to allow jsfunction to be injected
+        allow_unsafe_jscode=True,
         theme='streamlit'    
         )
 
-    st.write(dir(gb.configure_column))
+    st.write(dir(gb.configure_column.type))
     df_itens = pd.DataFrame(grid_response['data'])
     df_xlsx = to_excel(df_itens[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_envio', 'data_recebimento']])
 
