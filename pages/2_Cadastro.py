@@ -110,6 +110,7 @@ else:
                         'data_recebimento':'',
                         'data_em_descaracterizacao':'',
                         'data_descaracterizado':'',
+                        'data_alienacao':'',
                         'data_distribuido':'',
                         'data_venda':'',
                         'preco_unitario':preco_unit,
@@ -117,7 +118,10 @@ else:
                         'situacao':'Cadastrado',
                         'uf':uf_item,
                         'origem':st.session_state['origem'],
+                        'num_lote':'',
                         'nome_om':'',
                         'num_leilao':''}
                     )
                     nav_page('Cadastro')
+
+                    
