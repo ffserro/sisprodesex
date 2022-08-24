@@ -139,7 +139,7 @@ else:
         if enviar:
             ids = [i['id'] for i in grid_response['selected_rows']]
             for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
-                db.child('itens').child(i).update({'situacao':'Em descaracterização', 'data_recebimento':datetime.now().strftime("%d/%m/%Y")})
+                db.child('itens').child(i).update({'situacao':'Em descaracterização', 'data_descaracterizacao':datetime.now().strftime("%d/%m/%Y")})
             nav_page('Recebimento')
 
     elif modulo == 'Pronto da descaracterização':
@@ -199,7 +199,7 @@ else:
         if enviar:
             ids = [i['id'] for i in grid_response['selected_rows']]
             for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
-                db.child('itens').child(i).update({'situacao':'Descaracterizado', 'data_recebimento':datetime.now().strftime("%d/%m/%Y")})
+                db.child('itens').child(i).update({'situacao':'Descaracterizado', 'data_pronto_descaracterizacao':datetime.now().strftime("%d/%m/%Y")})
             nav_page('Recebimento')
 
 
@@ -263,7 +263,7 @@ else:
             if enviar:
                 ids = [i['id'] for i in grid_response['selected_rows']]
                 for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
-                    db.child('itens').child(i).update({'num_lote':num_lote,'situacao':'Pronto para alienação', 'data_recebimento':datetime.now().strftime("%d/%m/%Y")})
+                    db.child('itens').child(i).update({'num_lote':num_lote,'situacao':'Pronto para alienação', 'data_para_alienacao':datetime.now().strftime("%d/%m/%Y")})
                 nav_page('Recebimento')
 
     elif modulo == 'Venda':
@@ -327,7 +327,7 @@ else:
                 if enviar:
                     ids = [i['id'] for i in grid_response['selected_rows']]
                     for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
-                        db.child('itens').child(i).update({'nome_om':nome_om,'situacao':'Alienado', 'data_recebimento':datetime.now().strftime("%d/%m/%Y")})
+                        db.child('itens').child(i).update({'nome_om':nome_om,'situacao':'Alienado', 'data_alienado':datetime.now().strftime("%d/%m/%Y")})
                 nav_page('Recebimento')
             elif tipo_alienacao == 'Leilão':
                 num_leilao = st.text_input('Insira o número do leilão: ', placeholder='Por favor, digite no formato NUMERO/ANO')
@@ -335,6 +335,6 @@ else:
                 if enviar:
                     ids = [i['id'] for i in grid_response['selected_rows']]
                     for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
-                        db.child('itens').child(i).update({'num_leilao':num_leilao,'situacao':'Alienado', 'data_recebimento':datetime.now().strftime("%d/%m/%Y")})
+                        db.child('itens').child(i).update({'num_leilao':num_leilao,'situacao':'Alienado', 'data_alienado':datetime.now().strftime("%d/%m/%Y")})
                 nav_page('Recebimento')
         
