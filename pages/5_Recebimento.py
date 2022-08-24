@@ -315,4 +315,10 @@ else:
             )
 
         enviar = st.button('Leiloado')
+
+        if enviar:
+            ids = [i['id'] for i in grid_response['selected_rows']]
+            for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
+                db.child('itens').child(i).update({'situacao':'Alienado', 'data_recebimento':datetime.now().strftime("%d/%m/%Y")})
+            nav_page('Recebimento')
         
