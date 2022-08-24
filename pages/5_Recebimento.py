@@ -255,7 +255,7 @@ else:
             theme='streamlit'    
             )
 
-        if grid_response['selected_rows'] > 0:
+        if len(grid_response['selected_rows']) > 0:
             num_lote = st.text_input('Insira o número do lote para o qual o(s) item(ns) serão designados.')
 
             enviar = st.button('Pronto para alienação')
