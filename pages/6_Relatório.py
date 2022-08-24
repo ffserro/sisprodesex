@@ -110,7 +110,7 @@ else:
         theme='streamlit'    
         )
 
-    st.write(dir(gb))
+
     df_itens = pd.DataFrame(grid_response['data'])
     df_xlsx = to_excel(df_itens[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_envio', 'data_recebimento']])
 
