@@ -111,7 +111,7 @@ else:
         )
 
 
-    st.write(grid_response)
+    st.write(grid_response.keys())
 
 
 
