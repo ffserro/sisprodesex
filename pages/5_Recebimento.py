@@ -270,7 +270,7 @@ else:
                         ids = [i['id'] for i in grid_response['selected_rows']]
                         for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
                             db.child('itens').child(i).update({'nome_OM':distribuido,'situacao':'Distribuído para OM', 'data_recebimento':datetime.now().strftime("%d/%m/%Y")})
-                    except Exception err:
+                    except Exception as err:
                         st.write(err)
                     nav_page('Recebimento')
         if vender:
