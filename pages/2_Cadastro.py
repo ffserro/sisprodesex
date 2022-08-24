@@ -108,10 +108,16 @@ else:
                         'data_cadastro':datetime.now().strftime("%d/%m/%Y"),
                         'data_envio':'',
                         'data_recebimento':'',
+                        'data_em_descaracterizacao':'',
+                        'data_descaracterizado':'',
+                        'data_distribuido':'',
+                        'data_venda':'',
                         'preco_unitario':preco_unit,
                         'quantidade':quant_item,
                         'situacao':'Cadastrado',
                         'uf':uf_item,
-                        'origem':st.session_state['origem']}
+                        'origem':st.session_state['origem'],
+                        'nome_OM':'',
+                        'num_leilao':''}
                     )
                     nav_page('Cadastro')
