@@ -31,7 +31,7 @@ else:
     with f1:
         st.write(f'''
             <a target="_blank" 
-            href="https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Documentos%2FSGM-401.pdf?alt=media&token=55abeb30-8758-4db2-8052-bcfab7cbde00">
+            href="https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Documentos%2FSGM-201-Rev-7.pdf?alt=media&token=63e2fece-7f2f-4b11-ac33-51728282bdef">
                 <button>
                     SGM-201
                 </button>
@@ -42,7 +42,7 @@ else:
     with f2:
         st.write(f'''
             <a target="_blank" 
-            href="https://google.com">
+            href="https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Documentos%2FABASTCMARINST-20-01A---ANEXO-D---Sobressalentes.pdf?alt=media&token=243f6c51-5f46-484b-8fdd-584716f740b8">
                 <button>
                     ABASTCMARINST
                 </button>
@@ -53,7 +53,7 @@ else:
     with f3:
         st.write(f'''
             <a target="_blank" 
-            href="https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Documentos%2FNorma%20Grupo%20H.docx.pdf?alt=media&token=e61f5f01-d2d9-4527-bb4e-07540ce22348">
+            href="https://firebasestorage.googleapis.com/v0/b/prodesex-8e59f.appspot.com/o/Documentos%2FCorpo%20do%20Trabalho.pdf?alt=media&token=5a26fa6b-b7a7-4e4d-adee-867fc88c162d">
                 <button>
                     Sugestões do grupo
                 </button>
