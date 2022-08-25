@@ -13,12 +13,12 @@ else:
     st.sidebar.write('Para navegar pelas funcionalidades do sistema, por favor clique em um dos links mostrados acima para ser redirecionado para umas das abas.')
 
     st.write('''
-    O Sistema de Apoio ao Programa de Destinação de Excessos é uma sugestão de melhoria para os processos de intendência do Grupo H do CApA-2022, composto pelos:
-    - 1T(IM) Sacramento
-    - 1T(IM) Matheus Bispo
-    - 1T(IM) Raí
-    - 1T(IM) Sêrro
-    - 1T(QC-IM) Ludmila Patrício
+    O Subsistema do Programa de Destinação de Excessos é uma sugestão de melhoria para os processos de intendência do Grupo H do CApA-2022, composto pelos:
+    - 1ºTen (IM) Sacramento
+    - 1ºTen (IM) Matheus Bispo
+    - 1ºTen (IM) Raí
+    - 1ºTen (IM) Sêrro
+    - 1ºTen (QC-IM) Ludmila Patrício
     ''')
     st.write('''
     O propósito maior deste sistema ora apresentado é tornar mais eficientes a identificação e o controle dos itens de sobressalentes classificados como excesso, desde a sua origem nos diversos Órgãos de Distribuição localizados em diferentes regiões do país, até sua posterior distribuição pelo Depósito de Sobressalentes da Marinha no Rio de Janeiro.
