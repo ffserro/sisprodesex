@@ -72,7 +72,7 @@ else:
         valor[1] = '00'
     while len(valor[0])%3!=0:
         valor[0] = '0'+valor[0]
-    chunks, chunk_size = len(valor[0]), len(valor[0])//4
+    chunks, chunk_size = len(valor[0]), 3
     valor[0] = '.'.join([ valor[0][i:i+chunk_size] for i in range(0, chunks, chunk_size) ])
     
     kpi3.metric(
