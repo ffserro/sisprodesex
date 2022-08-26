@@ -76,6 +76,9 @@ else:
         if 'message' in st.session_state and st.session_state['message'] != '':
             st.success(st.session_state['message'])
             st.session_state['message'] = ''
+
+        itens_singra = pd.read_csv('../itens_singra.csv')
+        st.write(itens_singra.head())
         with st.form("Cadastro de excessos", clear_on_submit=True):
             st.write("Novo item")
             try:
