@@ -121,7 +121,7 @@ else:
 
 
 
-        st.write('# Recebimento dos itens enviados')
+        st.write('# Descaracterização dos itens recebidos')
 
         grid_response = AgGrid(
             df, 
@@ -181,7 +181,7 @@ else:
 
 
 
-        st.write('# Recebimento dos itens enviados')
+        st.write('# Itens descaracterizados')
 
         grid_response = AgGrid(
             df, 
@@ -243,7 +243,7 @@ else:
 
 
 
-        st.write('# Recebimento dos itens enviados')
+        st.write('# Distribuição de itens')
 
         grid_response = AgGrid(
             df, 
@@ -305,7 +305,7 @@ else:
 
 
 
-        st.write('# Recebimento dos itens enviados')
+        st.write('# Alienação dos itens descaracterizados')
 
         grid_response = AgGrid(
             df, 
