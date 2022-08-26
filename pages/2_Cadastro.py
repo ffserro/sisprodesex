@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 from Logout import auth, db
 from utilidades import nav_page
 from datetime import datetime
