@@ -103,7 +103,7 @@ else:
 
             enviado = st.form_submit_button("Cadastrar")
             if enviado:
-                if pi_item == '' or nome_item == '' or desc_item == '' or lvad_item == '' or uf_item == '' or quant_item == '' or preco_unit == '':
+                if pi_item == '-' or nome_item == '-' or desc_item == '' or lvad_item == '' or uf_item == '' or quant_item == '' or preco_unit == '':
                     st.warning('Por favor, preencha todos os campos')
                 else:
                     st.session_state['message'] = 'Cadastro realizado com sucesso'
