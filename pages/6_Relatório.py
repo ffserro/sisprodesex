@@ -150,7 +150,6 @@ else:
     gb.configure_pagination()
     gb.configure_column("data_cadastro", 'Data Cadastro', type=["dateColumnFilter","customDateTimeFormat"], custom_format_string='dd-MM-yyyy', pivot=True)
     gb.configure_column("data_envio", 'Data Envio', type=["dateColumnFilter","customDateTimeFormat"], custom_format_string='dd-MM-yyyy', pivot=True)
-    gb.configure_column("data_recebimento", 'Data Recebimento', type=["dateColumnFilter","customDateTimeFormat"], custom_format_string='dd-MM-yyyy', pivot=True)
     gb.configure_column("pi", 'PI')
     gb.configure_column("nome", 'Nome do item')
     gb.configure_column("descricao",'Descrição')
