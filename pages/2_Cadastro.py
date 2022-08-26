@@ -87,7 +87,7 @@ else:
             except:
                 id_item = 0
             pi_item = st.selectbox('Insira PI', ['-'] + list(itens_singra.PI),key='pii')
-            nome_item = st.text_input('Insira o nome do item', value=, key='nmi')
+            nome_item = st.text_input('Insira o nome do item', value=itens_singra[itens_singra.PI == pi_item].NOME_COLOQUIAL, key='nmi')
             desc_item = st.text_area('Descrição do item', key='dsi')
             f3, f4 = st.columns([1,1])
             with f3:
