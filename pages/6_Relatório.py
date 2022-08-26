@@ -65,9 +65,19 @@ else:
         value=len(df_itens[df_itens.data_recebimento != ''])
     )
 
+    valor = str(sum(df_itens.preco_unitario * df_itens.quantidade)).split('.')
+    try:
+        valor[1] = valor[1][:2]
+    except:
+        valor[1] = '00'
+    while len(valor[0])%3!=0:
+        valor[0] = '0'+valor[0]
+    chunks, chunk_size = len(valor[0]), len(valor[0])//4
+    valor[0] = '.'.join([ valor[0][i:i+chunk_size] for i in range(0, chunks, chunk_size) ])
+    
     kpi3.metric(
         label="Total de Excessos Destinados",
-        value='R$ {:.2f}'.format(sum(df_itens.preco_unitario * df_itens.quantidade)).replace('.',',')
+        value='R$ {}'.format(','.join(valor))
     )
 
     gb = GridOptionsBuilder.from_dataframe(df_itens[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_envio', 'data_recebimento']])
