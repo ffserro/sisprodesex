@@ -51,13 +51,17 @@ else:
 
         def exclui_usuario():
             st.markdown('# Excluir usuários')
-            with st.form('Alteração', clear_on_submit=True):
-                campo = st.selectbox('Qual dado você deseja alterar?', ['-','Usuário', 'Email', 'OM de origem'])
-
-                antigo = st.text_input(f'Qual é o atual {campo.lower()}?')
-
+            with st.form('Excluir', clear_on_submit=True):
+                email = st.text_input('Digite o email do usuário que será excluído: ')
+                senha = '123456'
 
                 enviado = st.form_submit_button('Alterar')
+            
+            if enviado:
+                user = auth.sign_in_with_email_and_password(email, senha)
+                auth.delete_user_account(user['idToken'])
+                st.success('Usuário foi excluído com sucesso.')
+
 
 
         if servico == 'Cadastro de usuário':
