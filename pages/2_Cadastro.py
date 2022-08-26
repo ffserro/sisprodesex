@@ -55,7 +55,7 @@ else:
                 email = st.text_input('Digite o email do usuário que será excluído: ')
                 senha = '123456'
 
-                enviado = st.form_submit_button('Alterar')
+                enviado = st.form_submit_button('Excluir')
             
             if enviado:
                 user = auth.sign_in_with_email_and_password(email, senha)
