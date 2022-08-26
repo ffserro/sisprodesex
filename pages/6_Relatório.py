@@ -142,7 +142,7 @@ else:
 
     df_itens = filter_dataframe(df_itens)
 
-    gb = GridOptionsBuilder.from_dataframe(df_itens[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_envio', 'data_recebimento']])
+    gb = GridOptionsBuilder.from_dataframe(df_itens)
 
     #customize gridOptions
     gb.configure_default_column(maintainColumnOrder=True, groupable=True, value=True, enableRowGroup=True, aggFunc='sum', editable=False)
