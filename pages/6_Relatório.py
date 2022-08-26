@@ -173,7 +173,7 @@ else:
     gridOptions = gb.build()
 
     grid_response = AgGrid(
-        df_itens, 
+        df_itens['pi', 'nome', 'descricao', 'lvad', 'origem', 'preco_unitario', 'quantidade', 'situacao', 'data_cadastro'], 
         gridOptions=gridOptions,
         fit_columns_on_grid_load = True,
         data_return_mode='FILTERED', 
