@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from Logout import auth, db
+from Logout import db
 from utilidades import nav_page
 from datetime import datetime
 st.set_page_config(page_title='SISPRODESEX', page_icon='https://www.marinha.mil.br/sites/default/files/favicon-logomarca-mb.ico', layout="centered", initial_sidebar_state="expanded", menu_items=None)
@@ -79,7 +79,7 @@ else:
             st.session_state['message'] = ''
 
         itens_singra = pd.read_csv('./itens_singra.csv')[['PI', 'NOME_COLOQUIAL', 'UF']]
-        
+
         with st.form("Cadastro de excessos", clear_on_submit=True):
             st.write("Novo item")
             try:
