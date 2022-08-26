@@ -27,6 +27,7 @@ else:
     Esperamos com esse trabalho contribuir com a eficiência do SAbM e também caminhar no sentido de consolidar a cultura Data-driven no contexto administrativo da Marinha do Brasil.
     ''')
     st.write('''Confira abaixo as normas que regem o SAbM e as sugestões formuladas pelo grupo:''')
+    st.write("##")
     f1, f2, f3 = st.columns(3)
     with f1:
         st.write(f'''
