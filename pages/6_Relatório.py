@@ -112,6 +112,6 @@ else:
 
 
     df_itens = pd.DataFrame(grid_response['data'])
-    df_xlsx = to_excel(df_itens[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_envio', 'data_recebimento', 'data_descaracterizacao', 'data_pronto_descaracterizacao','data_alienacao']])
+    df_xlsx = to_excel(df_itens[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem', 'data_envio', 'data_recebimento', 'data_descaracterizacao', 'data_pronto_descaracterizacao']])
 
     st.download_button(label='Baixar relatório', data=df_xlsx , file_name= f'Relatorio{datetime.now().year}{datetime.now().month}{datetime.now().day}.xlsx')
