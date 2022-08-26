@@ -61,6 +61,7 @@ else:
             if enviado:
                 user = auth.sign_in_with_email_and_password(email, senha)
                 auth.delete_user_account(user['idToken'])
+                db.child('usuarios').order_by_child('email').equal_to(email).remove()
                 st.success('Usuário foi excluído com sucesso.')
 
 
