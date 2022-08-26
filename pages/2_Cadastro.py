@@ -87,7 +87,7 @@ else:
             except:
                 id_item = 0
             pi_item = st.selectbox('Insira PI', list(itens_singra.PI),key='pii')
-            st.write(st.session_state['Cadastro de excessos']['pii'])
+            st.write(st.session_state.keys())
             nome_item = st.selectbox('Insira o nome do item', itens_singra[itens_singra.PI == str(pi_item)].NOME_COLOQUIAL, key='nmi')
             desc_item = st.text_area('Descrição do item', key='dsi')
             f3, f4 = st.columns([1,1])
