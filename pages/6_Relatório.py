@@ -29,7 +29,7 @@ else:
         if not modify:
             return df
 
-        df = df.copy()
+        df = df
 
         # Try to convert datetimes into a standard format (datetime, no timezone)
         for col in df.columns:
