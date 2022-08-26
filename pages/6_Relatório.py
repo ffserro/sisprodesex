@@ -70,6 +70,8 @@ else:
         valor[1] = valor[1][:2]
     except:
         valor[1] = '00'
+    while len(valor[1]) < 2:
+        valor[1] = valor[1] + '0'
     while len(valor[0])%3!=0:
         valor[0] = '0'+valor[0]
     chunks, chunk_size = len(valor[0]), 3
