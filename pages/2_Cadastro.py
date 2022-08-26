@@ -86,8 +86,8 @@ else:
                 id_item = int(list(db.child('itens').order_by_child('id').limit_to_last(1).get().val().values())[0]['id']) + 1
             except:
                 id_item = 0
-            pi_item = st.selectbox('Insira PI', itens_singra.PI,key='pii')
-            nome_item = st.text_input('Insira o nome do item', key='nmi')
+            pi_item = st.selectbox('Insira PI', ['-'] + list(itens_singra.PI),key='pii')
+            nome_item = st.text_input('Insira o nome do item', value=, key='nmi')
             desc_item = st.text_area('Descrição do item', key='dsi')
             f3, f4 = st.columns([1,1])
             with f3:
