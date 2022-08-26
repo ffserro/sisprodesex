@@ -26,8 +26,8 @@ else:
         df = df_itens[df_itens.situacao == 'Em trânsito']
 
         if len(df) == 0:
-            st.title('Parece que não existem itens aguardando para serem recebidos pelo DepSMRJ...')
-            st.write('Por favor acompanhe o andamento dos itens enviados na aba "Consulta".')
+            st.title('Não existem itens aguardando para recebimento.')
+            st.write('Por favor acompanhe o andamento dos itens na aba "Consulta".')
             st.stop()
 
         #Infer basic colDefs from dataframe types
@@ -86,8 +86,8 @@ else:
         df = df_itens[df_itens.situacao == 'Recebido']
 
         if len(df) == 0:
-            st.title('Parece que não existem itens aguardando para serem recebidos pelo DepSMRJ...')
-            st.write('Por favor acompanhe o andamento dos itens enviados na aba "Consulta".')
+            st.title('Não existem itens aguardando para descaracterização')
+            st.write('Por favor acompanhe a situação dos itens na aba "Consulta".')
             st.stop()
 
         #Infer basic colDefs from dataframe types
@@ -146,8 +146,8 @@ else:
         df = df_itens[df_itens.situacao == 'Em descaracterização']
 
         if len(df) == 0:
-            st.title('Parece que não existem itens aguardando para serem recebidos pelo DepSMRJ...')
-            st.write('Por favor acompanhe o andamento dos itens enviados na aba "Consulta".')
+            st.title('Não existem itens em descaracterização')
+            st.write('Por favor acompanhe a situação dos itens na aba "Consulta".')
             st.stop()
 
         #Infer basic colDefs from dataframe types
@@ -208,8 +208,8 @@ else:
         df = df_itens[df_itens.situacao == 'Descaracterizado']
 
         if len(df) == 0:
-            st.title('Parece que não existem itens aguardando para serem recebidos pelo DepSMRJ...')
-            st.write('Por favor acompanhe o andamento dos itens enviados na aba "Consulta".')
+            st.title('Não existem itens descaracterizados aguardando.')
+            st.write('Por favor acompanhe a situação dos itens na aba "Consulta".')
             st.stop()
 
         #Infer basic colDefs from dataframe types
@@ -270,8 +270,8 @@ else:
         df = df_itens[df_itens.situacao == 'Pronto para alienação']
 
         if len(df) == 0:
-            st.title('Parece que não existem itens aguardando para serem recebidos pelo DepSMRJ...')
-            st.write('Por favor acompanhe o andamento dos itens enviados na aba "Consulta".')
+            st.title('Não existem itens aguardando alienação')
+            st.write('Por favor acompanhe a situação dos itens na aba "Consulta".')
             st.stop()
 
         #Infer basic colDefs from dataframe types
