@@ -11,7 +11,7 @@ else:
         
         st.sidebar.markdown("# Cadastro")
         st.sidebar.write('Esta página é exclusiva do administrador do sistema para inclusão e alteração de usuários')
-        servico = st.sidebar.selectbox('Por favor selecione o serviço desejado:',['Cadastro de usuário', 'Alteração de dados'])
+        servico = st.sidebar.selectbox('Por favor selecione o serviço desejado:',['Cadastro de usuário', 'Excluir usuário'])
 
         if 'message' in st.session_state and st.session_state['message'] != '':
             st.success(st.session_state['message'])
@@ -49,8 +49,8 @@ else:
                         auth.create_user_with_email_and_password(novo_email, nova_senha)
                         nav_page('Cadastro')
 
-        def altera_dados():
-            st.markdown('# Alteração de dados')
+        def exclui_usuario():
+            st.markdown('# Excluir usuários')
             with st.form('Alteração', clear_on_submit=True):
                 campo = st.selectbox('Qual dado você deseja alterar?', ['-','Usuário', 'Email', 'OM de origem'])
 
@@ -62,8 +62,8 @@ else:
 
         if servico == 'Cadastro de usuário':
             cadastro()
-        elif servico == 'Alteração de dados':
-            altera_dados()
+        elif servico == 'Excluir usuário':
+            exclui_usuario()
 
     else:
         st.markdown("# Cadastro de itens")
