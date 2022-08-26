@@ -74,6 +74,8 @@ else:
         valor[0] = '0'+valor[0]
     chunks, chunk_size = len(valor[0]), 3
     valor[0] = '.'.join([ valor[0][i:i+chunk_size] for i in range(0, chunks, chunk_size) ])
+    while valor[0][0] == '0':
+        valor[0] = valor[0][1:]
     
     kpi3.metric(
         label="Total de Excessos Destinados",
